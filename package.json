@@ -1,0 +1,40 @@
+{
+  "name": "hw2energyid",
+  "version": "0.1.0",
+  "description": "A tool to synchronize data from HomeWizard to EnergyID",
+  "keywords": [
+    "homewizard",
+    "homewizard-energy",
+    "homewizard-p1-meter",
+    "energyid",
+    "sync",
+    "api",
+    "webhook"
+  ],
+  "author": "Michaël Vanderheyden <hello@th3s4mur41.me> (https://th3s4mur41.me)",
+  "license": "MIT",
+  "homepage": "https://github.com/Th3S4mur41/hw2energyid",
+  "funding": "https://github.com/sponsors/Th3S4mur41",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Th3S4mur41/hw2energyid.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Th3S4mur41/hw2energyid/issues"
+  },
+  "main": ".src/index.mjs",
+  "bin": {
+    "hw2energyid": "bin/cli.mjs"
+  },
+  "scripts": {
+    "lint": "rome ci",
+    "lint:fix": "rome format",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "rome": "^11.0.0"
+  },
+  "dependencies": {
+    "yargs": "^17.7.1"
+  }
+}
