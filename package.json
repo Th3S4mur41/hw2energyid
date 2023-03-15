@@ -29,9 +29,13 @@
   "scripts": {
     "lint": "rome ci .",
     "lint:fix": "rome format --write .",
+    "prepare": "husky install",
+    "release": "semantic-release",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
     "rome": "^11.0.0"
