@@ -2,8 +2,8 @@
  * energyid-homewizard-connector
  */
 let initialized = false;
-let hw_p1_api = '';
-let energyid_hook = '';
+let hw_p1_api = "";
+let energyid_hook = "";
 
 const typeMap = [
 	[
@@ -113,16 +113,16 @@ export const init = (hwP1, energyidWebhook) => {
 	hw_p1_api = `http://${hwP1}/api/v1/data/`;
 	energyid_hook = energyidWebhook;
 	initialized = hw_p1_api && energyid_hook;
-}
+};
 
 export const sync = async () => {
- if (!initialized) {
-	console.error('Configuration is missing, call "init" function first.');
-	return;
- }
-	
+	if (!initialized) {
+		console.error('Configuration is missing, call "init" function first.');
+		return;
+	}
+
 	const data = await getData();
 	const readings = setReadings(data);
 
-	// sendReadings(readings);
+	sendReadings(readings);
 };

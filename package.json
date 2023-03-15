@@ -27,8 +27,8 @@
     "hw2energyid": "bin/cli.mjs"
   },
   "scripts": {
-    "lint": "rome ci",
-    "lint:fix": "rome format",
+    "lint": "rome ci .",
+    "lint:fix": "rome format --write .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
