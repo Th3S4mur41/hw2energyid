@@ -32,6 +32,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.0",
     "rome": "^11.0.0"
   },
   "dependencies": {
