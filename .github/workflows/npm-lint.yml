@@ -25,7 +25,7 @@ jobs:
           cache: 'npm'
 
       - name: '⛓️ Install dependencies'
-        run: npm ci --omit=optional --audit=false --prefer-offline --progress=false
+        run: npm ci --audit=false --prefer-offline --progress=false
 
       - name: '✅ Lint code'
         run: npm run lint
