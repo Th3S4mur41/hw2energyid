@@ -11,7 +11,9 @@ on:
       GH_TOKEN:
         required: false
     outputs: 
-      version: ${{ jobs.release.outputs.version }}
+      version: 
+        description: The newly released version
+        value: ${{ jobs.release.outputs.version }}
 
 permissions:
   contents: write
