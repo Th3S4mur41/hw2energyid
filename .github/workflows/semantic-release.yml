@@ -1,0 +1,60 @@
+# This is the workflow to trigger a release
+#
+name: Semantic release
+
+on:
+  # Allows you to call this workflow from other workflows
+  workflow_call:
+    secrets:
+      NPM_TOKEN:
+        required: false
+      GH_TOKEN:
+        required: false
+    outputs: 
+      version: ${{ jobs.release.outputs.version }}
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  release:
+    name: '🏷️ Semantic Release'
+    runs-on: ubuntu-latest
+
+    environment:
+      name: release
+      url: https://github.com/${{ github.repository }}/releases/tag/v${{ steps.release.outputs.version }}
+
+    outputs:
+      version: ${{ steps.release.outputs.version }}
+
+    steps:
+      - name: '☁️ Checkout repository'
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: '⚙️ Use Node.js'
+        uses: actions/setup-node@v3
+        with:
+          check-latest: true
+          cache: 'npm'
+
+      - name: '⛓️ Install dependencies'
+        env:
+          HUSKY: 0
+        run: npm ci --omit=optional --no-audit --prefer-offline --progress=false
+
+      - name: '📦 Release'
+        id: release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN || secrets.GITHUB_TOKEN }} # Needed to push to GitHub
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }} # Needed to publish to NPM registry
+          HUSKY: 0 # disable pre-commit hooks
+        run: |
+          npm run release
+          echo "version=$(npm run env | grep npm_package_version | cut -d '=' -f 2)" >> $GITHUB_OUTPUT
