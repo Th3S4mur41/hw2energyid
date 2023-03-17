@@ -23,8 +23,8 @@
     "url": "https://github.com/Th3S4mur41/hw2energyid/issues"
   },
   "publishConfig": {
-		"access": "public"
-	},
+    "access": "public"
+  },
   "main": ".src/index.mjs",
   "bin": {
     "hw2energyid": "bin/cli.mjs"
@@ -39,6 +39,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
+    "@th3s4mur41/release-config": "^2.0.3",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
     "rome": "^11.0.0"
