@@ -22,6 +22,9 @@
   "bugs": {
     "url": "https://github.com/Th3S4mur41/hw2energyid/issues"
   },
+  "publishConfig": {
+		"access": "public"
+	},
   "main": ".src/index.mjs",
   "bin": {
     "hw2energyid": "bin/cli.mjs"
