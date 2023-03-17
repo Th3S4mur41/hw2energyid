@@ -15,12 +15,10 @@ concurrency:
 jobs:
   npm-lint:
     name: '▶️ actions'
-    needs: [cancel-runs]
     uses: ./.github/workflows/npm-lint.yml
 
   codeql:
     name: '▶️ actions'
-    needs: [cancel-runs]
     uses: ./.github/workflows/codeql.yml
 
   release:
