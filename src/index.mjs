@@ -80,7 +80,7 @@ const getData = async () => {
 const setReadings = (data) => {
 	const readings = [];
 	const readingDate = new Date();
-	// readingDate.setHours(0, 0, 0, 0);
+	readingDate.setSeconds(0, 0);
 
 	typeMap.forEach((type) => {
 		readings.push(new Reading(type, readingDate.toISOString(), data[type[0]]));
@@ -91,15 +91,15 @@ const setReadings = (data) => {
 const sendReadings = (readings) => {
 	console.log("Sending readings to EnergyId Webhook...");
 	readings.forEach((reading) => {
+		console.log(`Sending reading: ${reading.json()}`);
 		fetch(energyid_hook, {
-			method: "post",
+			method: "POST",
 			headers: {
 				Accept: "application/json",
 				"Content-Type": "application/json",
 			},
 			body: reading.json(),
 		}).then((response) => {
-			console.log(`Sending reading: ${reading.json()}`);
 			console.log(response.statusText);
 		});
 	});
