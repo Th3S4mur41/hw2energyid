@@ -88,10 +88,13 @@ const setReadings = (data) => {
 	return readings;
 };
 
-const sendReadings = (readings) => {
-	console.log("Sending readings to EnergyId Webhook...");
+const sendReadings = (readings, dryRun) => {
+	console.log(dryRun ? "Printing readings to console..." : "Sending readings to EnergyId Webhook...");
 	readings.forEach((reading) => {
-		console.log(`Sending reading: ${reading.json()}`);
+		if (dryRun) {
+			console.log(`Reading to send: ${reading.json()}`);
+			return;
+		}
 		fetch(energyid_hook, {
 			method: "POST",
 			headers: {
@@ -99,9 +102,16 @@ const sendReadings = (readings) => {
 				"Content-Type": "application/json",
 			},
 			body: reading.json(),
-		}).then((response) => {
-			console.log(response.statusText);
-		});
+		})
+			.then((response) => {
+				if (!response.ok) {
+					throw new Error(`Error sending reading: ${reading.json()}`);
+				}
+				console.log(`Sending reading: ${reading.json()}`);
+			})
+			.catch((e) => {
+				console.error(e.message);
+			});
 	});
 };
 
@@ -115,7 +125,7 @@ export const init = (hwP1, energyidWebhook) => {
 	initialized = hw_p1_api && energyid_hook;
 };
 
-export const sync = async () => {
+export const sync = async (dryRun = false) => {
 	if (!initialized) {
 		console.error('Configuration is missing, call "init" function first.');
 		return;
@@ -124,5 +134,5 @@ export const sync = async () => {
 	const data = await getData();
 	const readings = setReadings(data);
 
-	sendReadings(readings);
+	sendReadings(readings, dryRun);
 };
