@@ -45,6 +45,7 @@
     "rome": "^11.0.0"
   },
   "dependencies": {
+    "node-cron": "^3.0.2",
     "yargs": "^17.7.1"
   }
 }

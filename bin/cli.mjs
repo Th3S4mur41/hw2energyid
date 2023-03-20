@@ -20,6 +20,11 @@ const yargsBin = yargs(hideBin(process.argv))
 		description: "URL of the EnergyId Webhook",
 		type: "string",
 	})
+	.option("r", {
+		alias: "recurring",
+		description: "Run the task every hour",
+		type: "boolean",
+	})
 	.option("d", {
 		alias: "dry-run",
 		description: "Read the data and simulate sending the readings",
@@ -39,4 +44,11 @@ if (typeof argv.p1 === "undefined" || typeof argv.energyid === "undefined") {
 }
 
 init(argv.p1, argv.energyid);
-sync(argv.d);
+if (argv.r) {
+	console.log("Scheduling hw2energyid to run every hour");
+	cron.schedule("0 * * * *", () => {
+		sync(argv.d);
+	});
+} else {
+	sync(argv.d);
+}
