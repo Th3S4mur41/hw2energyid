@@ -43,6 +43,9 @@ if (!(argv.p1 && argv.energyid)) {
 	process.exit(1);
 }
 
+console.log(`${process.env.npm_package_name} ${process.env.npm_package_version}`);
+console.log("");
+
 init(argv.p1, argv.energyid);
 if (argv.r) {
 	console.log("Scheduling hw2energyid to run every hour");
