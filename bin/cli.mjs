@@ -38,7 +38,7 @@ const yargsBin = yargs(hideBin(process.argv))
 
 const argv = yargsBin.argv;
 
-if (typeof argv.p1 === "undefined" || typeof argv.energyid === "undefined") {
+if (!(argv.p1 && argv.energyid)) {
 	yargsBin.showHelp("log");
 	process.exit(1);
 }

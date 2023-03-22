@@ -73,7 +73,7 @@ const getData = async () => {
 			return data;
 		})
 		.catch((error) => {
-			console.error(error);
+			console.error(`Cannot retreive data from ${hw_p1_api}`);
 		});
 };
 
@@ -132,6 +132,9 @@ export const sync = async (dryRun = false) => {
 	}
 
 	const data = await getData();
+	if (!data) {
+		return;
+	}
 	const readings = setReadings(data);
 
 	sendReadings(readings, dryRun);
