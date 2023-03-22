@@ -1,6 +1,6 @@
 {
   "name": "hw2energyid",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A tool to synchronize data from HomeWizard to EnergyID",
   "keywords": [
     "homewizard",

@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/Th3S4mur41/hw2energyid/compare/v1.1.0...v1.1.1) (2023-03-22)
+
+
+### Bug Fixes
+
+* improve error handling ([3dfa36d](https://github.com/Th3S4mur41/hw2energyid/commit/3dfa36d9cd24e9cd26b6287ac6713888ad7b2f8d))
+
 ## [1.1.0](https://github.com/Th3S4mur41/hw2energyid/compare/v1.0.2...v1.1.0) (2023-03-22)
 
 
