@@ -1,3 +1,11 @@
+## [1.1.0](https://github.com/Th3S4mur41/hw2energyid/compare/v1.0.2...v1.1.0) (2023-03-22)
+
+
+### Features
+
+* add dry-run option ([c374d0a](https://github.com/Th3S4mur41/hw2energyid/commit/c374d0ac253561382dc971b3d4c27c7f5203ac8f))
+* add recurring option ([1517d91](https://github.com/Th3S4mur41/hw2energyid/commit/1517d91e71485c8c0de140193e3c252a015076f2))
+
 ## [1.0.2](https://github.com/Th3S4mur41/hw2energyid/compare/v1.0.1...v1.0.2) (2023-03-17)
 
 
