@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/Th3S4mur41/hw2energyid/compare/v1.0.1...v1.0.2) (2023-03-17)
+
+
+### Bug Fixes
+
+* reset seconds on readings ([da20426](https://github.com/Th3S4mur41/hw2energyid/commit/da20426f48377cf5c1d3580188540281089c1d40))
+
 ## [1.0.1](https://github.com/Th3S4mur41/hw2energyid/compare/v1.0.0...v1.0.1) (2023-03-17)
 
 
