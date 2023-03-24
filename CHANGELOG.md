@@ -1,3 +1,15 @@
+## [1.1.2](https://github.com/Th3S4mur41/hw2energyid/compare/v1.1.1...v1.1.2) (2023-03-24)
+
+
+### Bug Fixes
+
+* improved reading acceptance ([7c99395](https://github.com/Th3S4mur41/hw2energyid/commit/7c9939500879311edd10dcc0c76b8967468dd21f))
+
+
+### Dependencies and Other Build Updates
+
+* **deps-dev:** bump @commitlint/cli from 17.4.4 to 17.5.0 ([#1](https://github.com/Th3S4mur41/hw2energyid/issues/1)) ([d87eb80](https://github.com/Th3S4mur41/hw2energyid/commit/d87eb805c513df1234056d21bdb53859d977c29a))
+
 ## [1.1.1](https://github.com/Th3S4mur41/hw2energyid/compare/v1.1.0...v1.1.1) (2023-03-22)
 
 
