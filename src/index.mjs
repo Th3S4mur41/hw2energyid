@@ -80,7 +80,7 @@ const getData = async () => {
 const setReadings = (data) => {
 	const readings = [];
 	const readingDate = new Date();
-	readingDate.setSeconds(0, 0);
+	readingDate.setMinutes(0, 0, 0);
 
 	typeMap.forEach((type) => {
 		readings.push(new Reading(type, readingDate.toISOString(), data[type[0]]));
@@ -136,6 +136,8 @@ export const sync = async (dryRun = false) => {
 		return;
 	}
 	const readings = setReadings(data);
-
-	sendReadings(readings, dryRun);
+	setTimeout(() => {
+		// Account for time discrepensies between local system and server
+		sendReadings(readings, dryRun);
+	}, 5000);
 };

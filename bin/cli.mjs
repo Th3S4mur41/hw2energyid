@@ -49,7 +49,7 @@ console.log("");
 init(argv.p1, argv.energyid);
 if (argv.r) {
 	console.log("Scheduling hw2energyid to run every hour");
-	cron.schedule("0 * * * *", () => {
+	cron.schedule("1 * * * *", () => {
 		sync(argv.d);
 	});
 } else {
