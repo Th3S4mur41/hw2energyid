@@ -1,3 +1,22 @@
+## [1.2.0](https://github.com/Th3S4mur41/hw2energyid/compare/v1.1.2...v1.2.0) (2023-03-31)
+
+
+### Features
+
+* add docker version of the app ([05aecf3](https://github.com/Th3S4mur41/hw2energyid/commit/05aecf38e67a4bb16c642ae8d72df9424ba77ef9))
+
+
+### Bug Fixes
+
+* docker workflow ([26b8a54](https://github.com/Th3S4mur41/hw2energyid/commit/26b8a54a28474da298bb6e942d82e9b03f6a8f99))
+
+
+### Dependencies and Other Build Updates
+
+* check json files in commit hook ([689b277](https://github.com/Th3S4mur41/hw2energyid/commit/689b277c304f5b9d7602ba96e3ce25c8b9ed6130))
+* **deps-dev:** bump @commitlint/cli from 17.5.0 to 17.5.1 ([#2](https://github.com/Th3S4mur41/hw2energyid/issues/2)) ([f79d667](https://github.com/Th3S4mur41/hw2energyid/commit/f79d667d7f26c8ab69ec62e472642fd7c61924d9))
+* **deps-dev:** bump rome from 11.0.0 to 12.0.0 ([#3](https://github.com/Th3S4mur41/hw2energyid/issues/3)) ([e384b88](https://github.com/Th3S4mur41/hw2energyid/commit/e384b887c53b9bddb31695bcaea490301b660b41))
+
 ## [1.1.2](https://github.com/Th3S4mur41/hw2energyid/compare/v1.1.1...v1.1.2) (2023-03-24)
 
 
