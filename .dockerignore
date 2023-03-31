@@ -1,0 +1,16 @@
+
+# folders
+.github/
+.history/
+.husky/
+.vscode/
+docs/
+node_modules/
+
+# files
+.gitingore
+.lintstagedrc.json
+.nvmrc
+.releaserc.json
+.commitlintrc.json
+rome.json

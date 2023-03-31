@@ -9,15 +9,15 @@ import cron from "node-cron";
 // https://www.npmjs.com/package/node-cron
 
 const yargsBin = yargs(hideBin(process.argv))
-	.usage("$0 --p1 <hw p1 host or ip> --energyid <energyid webhook> [option]")
-	.option("p", {
-		alias: "p1",
-		description: "Hostname or IP address of the HomeWizard P1 device",
-		type: "string",
-	})
+	.usage("$0--energyid <energyid webhook>  --p1 <hw p1 host or ip> [options]")
 	.option("e", {
 		alias: "energyid",
 		description: "URL of the EnergyId Webhook",
+		type: "string",
+	})
+	.option("p", {
+		alias: "p1",
+		description: "Hostname or IP address of the HomeWizard P1 device",
 		type: "string",
 	})
 	.option("r", {

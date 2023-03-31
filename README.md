@@ -26,6 +26,63 @@ To run the tool, you will also need to have [NodeJS](https://nodejs.org/en/downl
 
 ## Usage
 
+You can either run the tool in the console using the NPM script or use the Docker image.
+
+### NPM Script
+
+Open a terminal/console and run the following script:
+
+```sh
+npx hw2energyid --energyid=<url of the webhook> <options>
+```
+
+### Options
+
+| Option | Alias | Description |
+| --- | --- | --- |
+| `--energyid`| `-e`  | The URL of the EnergyID Webhook |
+| `--p1` | `-p` | The name or IP address of the P1 Meter device |
+| `--dry-run` | `-d` | Dry run. No data will be sent to EnergyID |
+| `--recurring` | `-r` | Run the tool every hour |
+| `--help` | `-h` | Show help |
+| `--version` | `-v` | Show version number |
+
+### Docker
+
+First, you need to retreive the IP address of your P1 Meter device.  
+
+Open a terminal/console and run the following script:
+
+```sh
+ping hw-p1meter-<last 6 charachter of serial>
+```
+
+Create a docker compose file with the following content:
+
+```yaml
+version: '3'
+
+services:
+    hw2energyid:
+        image: ghcr.io/th3s4mur41/hw2energyid
+        environment:
+          - energyid=<the URL of the EnergyId webhook>
+          - p1=<the IP address of the P1 Meter device>
+        network_mode: host
+        dns: 
+          - 1.1.1.1
+```
+
+> **Note**  
+> The `dns` section is required to resolve the EnergyId webhook URL.
+> If you are using a different DNS server, replace 
+
+| Environment Variable | Description |
+| --- | --- |
+| `energyid` | The URL of the EnergyID Webhook |
+| `p1` | The IP address of the P1 Meter device |
+
+## Examples
 ### P1 Meter
 
 The HomeWizard [P1 Meter](https://www.homewizard.com/p1-meter/) connects into the P1 port on your smart meter and shows your electricity and gas usage.
@@ -47,8 +104,7 @@ Now that you have all the data you need. Open a terminal/console and run the fol
 npx hw2energyid --p1=hw-p1meter-<last 6 charachter of serial> --energyid=<url of the webhook>
 ```
 
-#### Example
-The command with your data should look similar to this:
+E.g.: The command with your data should look similar to this:
 ```sh
 npx hw2energyid --p1=hw-p1meter-65d8c7 --energyid=https://hooks.energyid.eu/services/WebhookIn/46535693-fe25-48ba-96fa-ea827e987318/OS753GD97A11
 ```

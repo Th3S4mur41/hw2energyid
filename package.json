@@ -1,51 +1,45 @@
 {
-  "name": "hw2energyid",
-  "version": "1.1.2",
-  "description": "A tool to synchronize data from HomeWizard to EnergyID",
-  "keywords": [
-    "homewizard",
-    "homewizard-energy",
-    "homewizard-p1-meter",
-    "energyid",
-    "sync",
-    "api",
-    "webhook"
-  ],
-  "author": "Michaël Vanderheyden <hello@th3s4mur41.me> (https://th3s4mur41.me)",
-  "license": "MIT",
-  "homepage": "https://github.com/Th3S4mur41/hw2energyid",
-  "funding": "https://github.com/sponsors/Th3S4mur41",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Th3S4mur41/hw2energyid.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Th3S4mur41/hw2energyid/issues"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "main": ".src/index.mjs",
-  "bin": {
-    "hw2energyid": "bin/cli.mjs"
-  },
-  "scripts": {
-    "lint": "rome ci .",
-    "lint:fix": "rome format --write .",
-    "prepare": "husky install",
-    "release": "semantic-release",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^17.4.4",
-    "@commitlint/config-conventional": "^17.4.4",
-    "@th3s4mur41/release-config": "^2.0.3",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.2.0",
-    "rome": "^12.0.0"
-  },
-  "dependencies": {
-    "node-cron": "^3.0.2",
-    "yargs": "^17.7.1"
-  }
+	"name": "hw2energyid",
+	"version": "1.1.2",
+	"description": "A tool to synchronize data from HomeWizard to EnergyID",
+	"keywords": ["homewizard", "homewizard-energy", "homewizard-p1-meter", "energyid", "sync", "api", "webhook"],
+	"author": "Michaël Vanderheyden <hello@th3s4mur41.me> (https://th3s4mur41.me)",
+	"license": "MIT",
+	"homepage": "https://github.com/Th3S4mur41/hw2energyid",
+	"funding": "https://github.com/sponsors/Th3S4mur41",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Th3S4mur41/hw2energyid.git"
+	},
+	"bugs": {
+		"url": "https://github.com/Th3S4mur41/hw2energyid/issues"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"main": ".src/index.mjs",
+	"bin": {
+		"hw2energyid": "bin/cli.mjs"
+	},
+	"scripts": {
+		"build": "npm run build:docker",
+		"build:docker": "docker build --tag hw2energyid .",
+		"lint": "rome ci .",
+		"lint:fix": "rome format --write .",
+		"prepare": "husky install",
+		"release": "semantic-release",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^17.4.4",
+		"@commitlint/config-conventional": "^17.4.4",
+		"@th3s4mur41/release-config": "^2.0.3",
+		"husky": "^8.0.3",
+		"lint-staged": "^13.2.0",
+		"rome": "^12.0.0"
+	},
+	"dependencies": {
+		"node-cron": "^3.0.2",
+		"yargs": "^17.7.1"
+	}
 }
