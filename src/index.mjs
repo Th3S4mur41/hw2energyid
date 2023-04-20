@@ -65,7 +65,7 @@ class Reading {
 		this.remoteName = type[1].name;
 		this.metric = type[1].metric;
 		this.metricKind = type[1].metricKind;
-		this.unit =  type[1].unit;
+		this.unit = type[1].unit;
 		this.interval = "P1D";
 		this.data = [[date, value]];
 	}
@@ -97,14 +97,14 @@ const getData = async () => {
 };
 
 const setReadings = (data) => {
-			console.log(data);
+	console.log(data);
 	const readings = [];
 	const readingDate = new Date();
 	readingDate.setMinutes(0, 0, 0);
 
 	typeMap.forEach((type) => {
 		if (data[type[0]]) {
-			let value = (readingOffset + data[type[0]]).toFixed(4);
+			const value = (readingOffset + data[type[0]]).toFixed(4);
 			readings.push(new Reading(type, readingDate.toISOString(), value));
 		}
 	});
