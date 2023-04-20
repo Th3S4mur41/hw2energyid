@@ -9,21 +9,26 @@ import cron from "node-cron";
 // https://www.npmjs.com/package/node-cron
 
 const yargsBin = yargs(hideBin(process.argv))
-	.usage("$0--energyid <energyid webhook>  --p1 <hw p1 host or ip> [options]")
+	.usage("$0--energyid <energyid webhook>  --meter <homewizard meter host or ip> [options]")
 	.option("e", {
 		alias: "energyid",
 		description: "URL of the EnergyId Webhook",
 		type: "string",
 	})
-	.option("p", {
-		alias: "p1",
-		description: "Hostname or IP address of the HomeWizard P1 device",
+	.option("m", {
+		alias: ["meter", "p", "p1"],
+		description: "Hostname or IP address of the HomeWizard meter",
 		type: "string",
 	})
 	.option("r", {
 		alias: "recurring",
 		description: "Run the task every hour",
 		type: "boolean",
+	})
+	.option("o", {
+		alias: "offset",
+		description: "Add an offset to the meter's value (to compensate for consumption before installation)",
+		type: "number",
 	})
 	.option("d", {
 		alias: "dry-run",
@@ -38,7 +43,7 @@ const yargsBin = yargs(hideBin(process.argv))
 
 const argv = yargsBin.argv;
 
-if (!(argv.p1 && argv.energyid)) {
+if (!(argv.meter && argv.energyid)) {
 	yargsBin.showHelp("log");
 	process.exit(1);
 }
@@ -46,7 +51,7 @@ if (!(argv.p1 && argv.energyid)) {
 console.log(`${process.env.npm_package_name} ${process.env.npm_package_version}`);
 console.log("");
 
-init(argv.p1, argv.energyid);
+init(argv.meter, argv.energyid, argv.offset);
 if (argv.r) {
 	console.log("Scheduling hw2energyid to run every hour");
 	cron.schedule("1 * * * *", () => {

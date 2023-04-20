@@ -2,8 +2,9 @@
  * energyid-homewizard-connector
  */
 let initialized = false;
-let hw_p1_api = "";
+let hwe_api = "";
 let energyid_hook = "";
+let readingOffset = 0;
 
 const typeMap = [
 	[
@@ -12,6 +13,8 @@ const typeMap = [
 			id: "electricity-import-day",
 			name: "Electricity Import (day)",
 			metric: "electricityImport",
+			metricKind: "cumulative",
+			unit: "kWh",
 		},
 	],
 	[
@@ -20,6 +23,8 @@ const typeMap = [
 			id: "electricity-import-night",
 			name: "Electricity Import (night)",
 			metric: "electricityImport",
+			metricKind: "cumulative",
+			unit: "kWh",
 		},
 	],
 	[
@@ -28,6 +33,8 @@ const typeMap = [
 			id: "electricity-export-day",
 			name: "Electricity Export (day)",
 			metric: "electricityExport",
+			metricKind: "cumulative",
+			unit: "kWh",
 		},
 	],
 	[
@@ -36,6 +43,18 @@ const typeMap = [
 			id: "electricity-export-night",
 			name: "Electricity Export (night)",
 			metric: "electricityExport",
+			metricKind: "cumulative",
+			unit: "kWh",
+		},
+	],
+	[
+		"total_liter_m3",
+		{
+			id: "drinking-water-import",
+			name: "Drinking Water Import",
+			metric: "drinkingWaterImport",
+			metricKind: "cumulative",
+			unit: "m³",
 		},
 	],
 ];
@@ -45,8 +64,8 @@ class Reading {
 		this.remoteId = type[1].id;
 		this.remoteName = type[1].name;
 		this.metric = type[1].metric;
-		this.metricKind = "cumulative";
-		this.unit = "kWh";
+		this.metricKind = type[1].metricKind;
+		this.unit =  type[1].unit;
 		this.interval = "P1D";
 		this.data = [[date, value]];
 	}
@@ -61,11 +80,11 @@ class Reading {
  */
 
 const getData = async () => {
-	console.log("Retrieving data from Homewizard P1 API...");
+	console.log("Retrieving data from Homewizard API...");
 
-	return fetch(hw_p1_api)
+	return fetch(hwe_api)
 		.then((result) => {
-			console.log("HomeWizard P1 data:");
+			console.log("HomeWizard Meter data:");
 			return result.json();
 		})
 		.then((data) => {
@@ -73,17 +92,21 @@ const getData = async () => {
 			return data;
 		})
 		.catch((error) => {
-			console.error(`Cannot retreive data from ${hw_p1_api}`);
+			console.error(`Cannot retreive data from ${hwe_api}`);
 		});
 };
 
 const setReadings = (data) => {
+			console.log(data);
 	const readings = [];
 	const readingDate = new Date();
 	readingDate.setMinutes(0, 0, 0);
 
 	typeMap.forEach((type) => {
-		readings.push(new Reading(type, readingDate.toISOString(), data[type[0]]));
+		if (data[type[0]]) {
+			let value = (readingOffset + data[type[0]]).toFixed(4);
+			readings.push(new Reading(type, readingDate.toISOString(), value));
+		}
 	});
 	return readings;
 };
@@ -119,10 +142,16 @@ const sendReadings = (readings, dryRun) => {
  * Public functions
  */
 
-export const init = (hwP1, energyidWebhook) => {
-	hw_p1_api = `http://${hwP1}/api/v1/data/`;
+export const init = (hwe, energyidWebhook, offset = 0) => {
+	hwe_api = `http://${hwe}/api/v1/data/`;
 	energyid_hook = energyidWebhook;
-	initialized = hw_p1_api && energyid_hook;
+	initialized = hwe_api && energyid_hook;
+
+	if (Number.isNaN(Number.parseFloat(offset))) {
+		readingOffset = 0;
+	} else {
+		readingOffset = Number.parseFloat(offset);
+	}
 };
 
 export const sync = async (dryRun = false) => {
