@@ -1,3 +1,19 @@
+## [1.3.0-alpha.1](https://github.com/Th3S4mur41/hw2energyid/compare/v1.2.0...v1.3.0-alpha.1) (2023-04-20)
+
+
+### Features
+
+* add support for watermeter ([#15](https://github.com/Th3S4mur41/hw2energyid/issues/15)) ([0acfe3f](https://github.com/Th3S4mur41/hw2energyid/commit/0acfe3ffe95c582d4e928e8b2f3f28eeb0cf73b4))
+
+
+### Dependencies and Other Build Updates
+
+* **deps-dev:** bump @commitlint/cli from 17.5.1 to 17.6.0 ([#6](https://github.com/Th3S4mur41/hw2energyid/issues/6)) ([f6f0ea9](https://github.com/Th3S4mur41/hw2energyid/commit/f6f0ea920166f360615e81b6bc6e2b6ab5d9a24a))
+* **deps-dev:** bump @commitlint/cli from 17.6.0 to 17.6.1 ([#12](https://github.com/Th3S4mur41/hw2energyid/issues/12)) ([6d2f402](https://github.com/Th3S4mur41/hw2energyid/commit/6d2f4020850f5e82df6fe9ef4a72ea650b29f63f))
+* **deps-dev:** bump @commitlint/config-conventional ([#13](https://github.com/Th3S4mur41/hw2energyid/issues/13)) ([5eeb117](https://github.com/Th3S4mur41/hw2energyid/commit/5eeb117459fedfec5bddfeca884da9aa1715c3de))
+* **deps-dev:** bump @commitlint/config-conventional ([#5](https://github.com/Th3S4mur41/hw2energyid/issues/5)) ([d255a48](https://github.com/Th3S4mur41/hw2energyid/commit/d255a4884735c74693ece685178b23cc954032e2))
+* **deps-dev:** bump lint-staged from 13.2.0 to 13.2.1 ([#4](https://github.com/Th3S4mur41/hw2energyid/issues/4)) ([30bebe3](https://github.com/Th3S4mur41/hw2energyid/commit/30bebe301dad190610bad41bd4de40f34cf674ea))
+
 ## [1.2.0](https://github.com/Th3S4mur41/hw2energyid/compare/v1.1.2...v1.2.0) (2023-03-31)
 
 
