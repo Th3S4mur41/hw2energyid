@@ -12,6 +12,8 @@ RUN npm ci
 COPY . .
  
 ENV energyid ''
+# p1 is deprecated, use meter instead
 ENV p1 ''
+ENV meter ${p1}
 
-CMD npx hw2energyid--energyid=${energyid} --p1=${p1} -r
+CMD npx hw2energyid--energyid=${energyid} --meter=${meter} -r

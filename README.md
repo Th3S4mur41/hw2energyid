@@ -41,7 +41,8 @@ npx hw2energyid --energyid=<url of the webhook> <options>
 | Option | Alias | Description |
 | --- | --- | --- |
 | `--energyid`| `-e`  | The URL of the EnergyID Webhook |
-| `--p1` | `-p` | The name or IP address of the P1 Meter device |
+| `--meter` | `-m` `-p` `--p1` | The name or IP address of the Homewizard meter |
+| `--offset` | `-o` | Add an offset to the meter's value (to compensate for consumption before installation) |
 | `--dry-run` | `-d` | Dry run. No data will be sent to EnergyID |
 | `--recurring` | `-r` | Run the tool every hour |
 | `--help` | `-h` | Show help |
@@ -49,12 +50,24 @@ npx hw2energyid --energyid=<url of the webhook> <options>
 
 ### Docker
 
-First, you need to retreive the IP address of your P1 Meter device.  
+First, you need to retreive the IP address of your Homewizard meter.  
+
+> **Note**  
+>  
+> The hostname is formatted as <product-name>-<last 6 characters of serial>, so devices with serial AABBCCDDEEFF the hostname is as following:
+>  
+> | Device | Example hostname |
+> | --- | --- |
+> | P1 meter | p1meter-DDEEFF |
+> | Energy Socket | energysocket-DDEEFF |
+> | Watermeter | watermeter-DDEEFF |
+> | kWh meter (single phase) | kwhmeter-DDEEFF |
+> | kWh meter (three phase) | kwhmeter-DDEEFF |
 
 Open a terminal/console and run the following script:
 
 ```sh
-ping hw-p1meter-<last 6 charachter of serial>
+ping <product-name>-<last 6 charachter of serial>
 ```
 
 Create a docker compose file with the following content:
@@ -67,7 +80,7 @@ services:
         image: ghcr.io/th3s4mur41/hw2energyid
         environment:
           - energyid=<the URL of the EnergyId webhook>
-          - p1=<the IP address of the P1 Meter device>
+          - =<the IP address of the  Meter device>
         network_mode: host
         dns: 
           - 1.1.1.1
@@ -80,15 +93,16 @@ services:
 | Environment Variable | Description |
 | --- | --- |
 | `energyid` | The URL of the EnergyID Webhook |
-| `p1` | The IP address of the P1 Meter device |
+| `meter` | The IP address of the Homewizard meter |
 
 ## Examples
+
+> **Note**  
+> hw2energyid currently only supports synchronizing electricity and water readings
+
 ### P1 Meter
 
 The HomeWizard [P1 Meter](https://www.homewizard.com/p1-meter/) connects into the P1 port on your smart meter and shows your electricity and gas usage.
-
-> **Note**  
-> hw2energyid currently only supports synchronizing electricity readings
 
 The P1 meter can be discoverd on your network using [Multicast DNS (mDNS)](https://www.ionos.com/digitalguide/server/know-how/multicast-dns/).  
 The name of the device is 'hw-p1meter-' followed by the last six charachters of its serial number.
@@ -101,12 +115,30 @@ The name of the device is 'hw-p1meter-' followed by the last six charachters of 
 Now that you have all the data you need. Open a terminal/console and run the following script:
 
 ```sh
-npx hw2energyid --p1=hw-p1meter-<last 6 charachter of serial> --energyid=<url of the webhook>
+npx hw2energyid --meter=hw-p1meter-<last 6 charachter of serial> --energyid=<url of the webhook>
 ```
 
 E.g.: The command with your data should look similar to this:
 ```sh
-npx hw2energyid --p1=hw-p1meter-65d8c7 --energyid=https://hooks.energyid.eu/services/WebhookIn/46535693-fe25-48ba-96fa-ea827e987318/OS753GD97A11
+npx hw2energyid --meter=hw-p1meter-65d8c7 --energyid=https://hooks.energyid.eu/services/WebhookIn/46535693-fe25-48ba-96fa-ea827e987318/OS753GD97A11
+```
+
+### Water Meter
+
+The HomeWizard [Water Meter](https://www.homewizard.com/watermeter/) reads your analog water meter.
+
+The Water meter can be discoverd on your network using [Multicast DNS (mDNS)](https://www.ionos.com/digitalguide/server/know-how/multicast-dns/).  
+The name of the device is 'watermeter-' followed by the last six charachters of its serial number.
+
+Now that you have all the data you need. Open a terminal/console and run the following script:
+
+```sh
+npx hw2energyid --meter=watermeter-<last 6 charachter of serial> --energyid=<url of the webhook>
+```
+
+E.g.: The command with your data should look similar to this:
+```sh
+npx hw2energyid --meter=watermeter-65d8c7 --offset=22.334 --energyid=https://hooks.energyid.eu/services/WebhookIn/46535693-fe25-48ba-96fa-ea827e987318/OS753GD97A11
 ```
 
 ## Links
