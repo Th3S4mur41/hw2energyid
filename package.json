@@ -33,7 +33,7 @@
 		"build": "npm run build:docker",
 		"build:docker": "docker build --tag hw2energyid .",
 		"lint": "rome ci .",
-		"lint:fix": "rome format --write .",
+		"lint:fix": "rome format --write . && rome check --apply .",
 		"prepare": "husky install",
 		"release": "semantic-release",
 		"test": "echo \"Error: no test specified\" && exit 1"
