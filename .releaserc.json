@@ -1,17 +1,17 @@
 {
 	"extends": "@th3s4mur41/release-config",
 	"plugins": [
-      [
-        "@semantic-release-plus/docker",
-        {
-          "name": {
-											"registry": "ghcr.io",
-											"namespace": "th3s4mur41",
-											"repository": "hw2energyid"
-										},
-                    
-        "skipLogin": true
-        }
-      ]
-    ]
+		[
+			"@semantic-release-plus/docker",
+			{
+				"name": {
+					"registry": "ghcr.io",
+					"namespace": "th3s4mur41",
+					"repository": "hw2energyid"
+				},
+
+				"skipLogin": true
+			}
+		]
+	]
 }
