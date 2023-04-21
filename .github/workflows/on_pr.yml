@@ -42,3 +42,6 @@ jobs:
   dependencies:
     name: '▶️ actions'
     uses: ./.github/workflows/dependencies.yml
+    permissions:
+      pull-requests: write
+      contents: write
