@@ -8,6 +8,9 @@ on:
   push:
     branches: [main, next, beta, alpha]
 
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
 concurrency:
   group: ${{ github.ref || github.run_id }}
   cancel-in-progress: true
