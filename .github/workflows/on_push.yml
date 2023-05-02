@@ -25,9 +25,17 @@ jobs:
       contents: read
       security-events: write
 
+  docker:
+    name: '▶️ actions'
+    needs: [npm-lint]
+    uses: ./.github/workflows/docker.yml      
+    permissions:
+      contents: read
+      packages: write
+
   release:
     name: '▶️ actions'
-    needs: [npm-lint, codeql]
+    needs: [npm-lint, docker, codeql]
     uses: ./.github/workflows/semantic-release.yml
     secrets:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN  }}

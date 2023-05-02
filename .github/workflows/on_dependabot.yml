@@ -1,0 +1,27 @@
+# This is the workflow to automatically approve and merge dependabot PRs
+#
+name: Dependabot automation
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  dependabot:
+    name: '🤖 Dependabot Automation'
+    runs-on: ubuntu-latest
+    if: ${{ github.actor == 'dependabot[bot]' }}
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - uses: ahmadnassri/action-dependabot-auto-merge@v2
+        with:
+          target: minor
+          github-token: ${{ secrets.GH_TOKEN }}
+          command: squash and merge
