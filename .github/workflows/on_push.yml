@@ -31,7 +31,7 @@ jobs:
   docker:
     name: '▶️ actions'
     needs: [npm-lint]
-    uses: ./.github/workflows/docker.yml      
+    uses: ./.github/workflows/docker.yml
     permissions:
       contents: read
       packages: write

@@ -1,87 +1,74 @@
 ## [1.3.0-alpha.1](https://github.com/Th3S4mur41/hw2energyid/compare/v1.2.0...v1.3.0-alpha.1) (2023-04-20)
 
-
 ### Features
 
-* add support for watermeter ([#15](https://github.com/Th3S4mur41/hw2energyid/issues/15)) ([0acfe3f](https://github.com/Th3S4mur41/hw2energyid/commit/0acfe3ffe95c582d4e928e8b2f3f28eeb0cf73b4))
-
+- add support for watermeter ([#15](https://github.com/Th3S4mur41/hw2energyid/issues/15)) ([0acfe3f](https://github.com/Th3S4mur41/hw2energyid/commit/0acfe3ffe95c582d4e928e8b2f3f28eeb0cf73b4))
 
 ### Dependencies and Other Build Updates
 
-* **deps-dev:** bump @commitlint/cli from 17.5.1 to 17.6.0 ([#6](https://github.com/Th3S4mur41/hw2energyid/issues/6)) ([f6f0ea9](https://github.com/Th3S4mur41/hw2energyid/commit/f6f0ea920166f360615e81b6bc6e2b6ab5d9a24a))
-* **deps-dev:** bump @commitlint/cli from 17.6.0 to 17.6.1 ([#12](https://github.com/Th3S4mur41/hw2energyid/issues/12)) ([6d2f402](https://github.com/Th3S4mur41/hw2energyid/commit/6d2f4020850f5e82df6fe9ef4a72ea650b29f63f))
-* **deps-dev:** bump @commitlint/config-conventional ([#13](https://github.com/Th3S4mur41/hw2energyid/issues/13)) ([5eeb117](https://github.com/Th3S4mur41/hw2energyid/commit/5eeb117459fedfec5bddfeca884da9aa1715c3de))
-* **deps-dev:** bump @commitlint/config-conventional ([#5](https://github.com/Th3S4mur41/hw2energyid/issues/5)) ([d255a48](https://github.com/Th3S4mur41/hw2energyid/commit/d255a4884735c74693ece685178b23cc954032e2))
-* **deps-dev:** bump lint-staged from 13.2.0 to 13.2.1 ([#4](https://github.com/Th3S4mur41/hw2energyid/issues/4)) ([30bebe3](https://github.com/Th3S4mur41/hw2energyid/commit/30bebe301dad190610bad41bd4de40f34cf674ea))
+- **deps-dev:** bump @commitlint/cli from 17.5.1 to 17.6.0 ([#6](https://github.com/Th3S4mur41/hw2energyid/issues/6)) ([f6f0ea9](https://github.com/Th3S4mur41/hw2energyid/commit/f6f0ea920166f360615e81b6bc6e2b6ab5d9a24a))
+- **deps-dev:** bump @commitlint/cli from 17.6.0 to 17.6.1 ([#12](https://github.com/Th3S4mur41/hw2energyid/issues/12)) ([6d2f402](https://github.com/Th3S4mur41/hw2energyid/commit/6d2f4020850f5e82df6fe9ef4a72ea650b29f63f))
+- **deps-dev:** bump @commitlint/config-conventional ([#13](https://github.com/Th3S4mur41/hw2energyid/issues/13)) ([5eeb117](https://github.com/Th3S4mur41/hw2energyid/commit/5eeb117459fedfec5bddfeca884da9aa1715c3de))
+- **deps-dev:** bump @commitlint/config-conventional ([#5](https://github.com/Th3S4mur41/hw2energyid/issues/5)) ([d255a48](https://github.com/Th3S4mur41/hw2energyid/commit/d255a4884735c74693ece685178b23cc954032e2))
+- **deps-dev:** bump lint-staged from 13.2.0 to 13.2.1 ([#4](https://github.com/Th3S4mur41/hw2energyid/issues/4)) ([30bebe3](https://github.com/Th3S4mur41/hw2energyid/commit/30bebe301dad190610bad41bd4de40f34cf674ea))
 
 ## [1.2.0](https://github.com/Th3S4mur41/hw2energyid/compare/v1.1.2...v1.2.0) (2023-03-31)
 
-
 ### Features
 
-* add docker version of the app ([05aecf3](https://github.com/Th3S4mur41/hw2energyid/commit/05aecf38e67a4bb16c642ae8d72df9424ba77ef9))
-
+- add docker version of the app ([05aecf3](https://github.com/Th3S4mur41/hw2energyid/commit/05aecf38e67a4bb16c642ae8d72df9424ba77ef9))
 
 ### Bug Fixes
 
-* docker workflow ([26b8a54](https://github.com/Th3S4mur41/hw2energyid/commit/26b8a54a28474da298bb6e942d82e9b03f6a8f99))
-
+- docker workflow ([26b8a54](https://github.com/Th3S4mur41/hw2energyid/commit/26b8a54a28474da298bb6e942d82e9b03f6a8f99))
 
 ### Dependencies and Other Build Updates
 
-* check json files in commit hook ([689b277](https://github.com/Th3S4mur41/hw2energyid/commit/689b277c304f5b9d7602ba96e3ce25c8b9ed6130))
-* **deps-dev:** bump @commitlint/cli from 17.5.0 to 17.5.1 ([#2](https://github.com/Th3S4mur41/hw2energyid/issues/2)) ([f79d667](https://github.com/Th3S4mur41/hw2energyid/commit/f79d667d7f26c8ab69ec62e472642fd7c61924d9))
-* **deps-dev:** bump rome from 11.0.0 to 12.0.0 ([#3](https://github.com/Th3S4mur41/hw2energyid/issues/3)) ([e384b88](https://github.com/Th3S4mur41/hw2energyid/commit/e384b887c53b9bddb31695bcaea490301b660b41))
+- check json files in commit hook ([689b277](https://github.com/Th3S4mur41/hw2energyid/commit/689b277c304f5b9d7602ba96e3ce25c8b9ed6130))
+- **deps-dev:** bump @commitlint/cli from 17.5.0 to 17.5.1 ([#2](https://github.com/Th3S4mur41/hw2energyid/issues/2)) ([f79d667](https://github.com/Th3S4mur41/hw2energyid/commit/f79d667d7f26c8ab69ec62e472642fd7c61924d9))
+- **deps-dev:** bump rome from 11.0.0 to 12.0.0 ([#3](https://github.com/Th3S4mur41/hw2energyid/issues/3)) ([e384b88](https://github.com/Th3S4mur41/hw2energyid/commit/e384b887c53b9bddb31695bcaea490301b660b41))
 
 ## [1.1.2](https://github.com/Th3S4mur41/hw2energyid/compare/v1.1.1...v1.1.2) (2023-03-24)
 
-
 ### Bug Fixes
 
-* improved reading acceptance ([7c99395](https://github.com/Th3S4mur41/hw2energyid/commit/7c9939500879311edd10dcc0c76b8967468dd21f))
-
+- improved reading acceptance ([7c99395](https://github.com/Th3S4mur41/hw2energyid/commit/7c9939500879311edd10dcc0c76b8967468dd21f))
 
 ### Dependencies and Other Build Updates
 
-* **deps-dev:** bump @commitlint/cli from 17.4.4 to 17.5.0 ([#1](https://github.com/Th3S4mur41/hw2energyid/issues/1)) ([d87eb80](https://github.com/Th3S4mur41/hw2energyid/commit/d87eb805c513df1234056d21bdb53859d977c29a))
+- **deps-dev:** bump @commitlint/cli from 17.4.4 to 17.5.0 ([#1](https://github.com/Th3S4mur41/hw2energyid/issues/1)) ([d87eb80](https://github.com/Th3S4mur41/hw2energyid/commit/d87eb805c513df1234056d21bdb53859d977c29a))
 
 ## [1.1.1](https://github.com/Th3S4mur41/hw2energyid/compare/v1.1.0...v1.1.1) (2023-03-22)
 
-
 ### Bug Fixes
 
-* improve error handling ([3dfa36d](https://github.com/Th3S4mur41/hw2energyid/commit/3dfa36d9cd24e9cd26b6287ac6713888ad7b2f8d))
+- improve error handling ([3dfa36d](https://github.com/Th3S4mur41/hw2energyid/commit/3dfa36d9cd24e9cd26b6287ac6713888ad7b2f8d))
 
 ## [1.1.0](https://github.com/Th3S4mur41/hw2energyid/compare/v1.0.2...v1.1.0) (2023-03-22)
 
-
 ### Features
 
-* add dry-run option ([c374d0a](https://github.com/Th3S4mur41/hw2energyid/commit/c374d0ac253561382dc971b3d4c27c7f5203ac8f))
-* add recurring option ([1517d91](https://github.com/Th3S4mur41/hw2energyid/commit/1517d91e71485c8c0de140193e3c252a015076f2))
+- add dry-run option ([c374d0a](https://github.com/Th3S4mur41/hw2energyid/commit/c374d0ac253561382dc971b3d4c27c7f5203ac8f))
+- add recurring option ([1517d91](https://github.com/Th3S4mur41/hw2energyid/commit/1517d91e71485c8c0de140193e3c252a015076f2))
 
 ## [1.0.2](https://github.com/Th3S4mur41/hw2energyid/compare/v1.0.1...v1.0.2) (2023-03-17)
 
-
 ### Bug Fixes
 
-* reset seconds on readings ([da20426](https://github.com/Th3S4mur41/hw2energyid/commit/da20426f48377cf5c1d3580188540281089c1d40))
+- reset seconds on readings ([da20426](https://github.com/Th3S4mur41/hw2energyid/commit/da20426f48377cf5c1d3580188540281089c1d40))
 
 ## [1.0.1](https://github.com/Th3S4mur41/hw2energyid/compare/v1.0.0...v1.0.1) (2023-03-17)
 
-
 ### Bug Fixes
 
-* add missing node env ([0fb1758](https://github.com/Th3S4mur41/hw2energyid/commit/0fb175829efbb35391eb47bc6cdb339db1730119))
+- add missing node env ([0fb1758](https://github.com/Th3S4mur41/hw2energyid/commit/0fb175829efbb35391eb47bc6cdb339db1730119))
 
 ## 1.0.0 (2023-03-17)
 
-
 ### Features
 
-* initial scripts ([6b767b6](https://github.com/Th3S4mur41/hw2energyid/commit/6b767b644b370ec26cedd3bf0046591d3039c456))
-
+- initial scripts ([6b767b6](https://github.com/Th3S4mur41/hw2energyid/commit/6b767b644b370ec26cedd3bf0046591d3039c456))
 
 ### Dependencies and Other Build Updates
 
-* add missing release config package ([a891f67](https://github.com/Th3S4mur41/hw2energyid/commit/a891f67637e28c0f31f0f58d774d113394952f16))
+- add missing release config package ([a891f67](https://github.com/Th3S4mur41/hw2energyid/commit/a891f67637e28c0f31f0f58d774d113394952f16))

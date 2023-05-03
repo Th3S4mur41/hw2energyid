@@ -10,8 +10,8 @@ on:
         required: false
       GH_TOKEN:
         required: false
-    outputs: 
-      version: 
+    outputs:
+      version:
         description: The newly released version
         value: ${{ jobs.release.outputs.version }}
 

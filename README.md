@@ -14,6 +14,7 @@ Since HomeWizard devices API are only available within your local network, using
 ## Prerequisites
 
 ### EnergyID
+
 Before you start, you need to create a webhook in EnergyID to let the tool push the data to your dashboard.
 
 1. Go to the [EnergyId incoming webhook page](https://app.energyid.eu/integrations/WebhookIn) and click activate.
@@ -38,31 +39,31 @@ npx hw2energyid --energyid=<url of the webhook> <options>
 
 ### Options
 
-| Option | Alias | Description |
-| --- | --- | --- |
-| `--energyid`| `-e`  | The URL of the EnergyID Webhook |
-| `--meter` | `-m` `-p` `--p1` | The name or IP address of the Homewizard meter |
-| `--offset` | `-o` | Add an offset to the meter's value (to compensate for consumption before installation) |
-| `--dry-run` | `-d` | Dry run. No data will be sent to EnergyID |
-| `--recurring` | `-r` | Run the tool every hour |
-| `--help` | `-h` | Show help |
-| `--version` | `-v` | Show version number |
+| Option        | Alias            | Description                                                                            |
+| ------------- | ---------------- | -------------------------------------------------------------------------------------- |
+| `--energyid`  | `-e`             | The URL of the EnergyID Webhook                                                        |
+| `--meter`     | `-m` `-p` `--p1` | The name or IP address of the Homewizard meter                                         |
+| `--offset`    | `-o`             | Add an offset to the meter's value (to compensate for consumption before installation) |
+| `--dry-run`   | `-d`             | Dry run. No data will be sent to EnergyID                                              |
+| `--recurring` | `-r`             | Run the tool every hour                                                                |
+| `--help`      | `-h`             | Show help                                                                              |
+| `--version`   | `-v`             | Show version number                                                                    |
 
 ### Docker
 
-First, you need to retreive the IP address of your Homewizard meter.  
+First, you need to retreive the IP address of your Homewizard meter.
 
-> **Note**  
->  
+> **Note**
+>
 > The hostname is formatted as <product-name>-<last 6 characters of serial>, so devices with serial AABBCCDDEEFF the hostname is as following:
->  
-> | Device | Example hostname |
-> | --- | --- |
-> | P1 meter | p1meter-DDEEFF |
-> | Energy Socket | energysocket-DDEEFF |
-> | Watermeter | watermeter-DDEEFF |
-> | kWh meter (single phase) | kwhmeter-DDEEFF |
-> | kWh meter (three phase) | kwhmeter-DDEEFF |
+>
+> | Device                   | Example hostname    |
+> | ------------------------ | ------------------- |
+> | P1 meter                 | p1meter-DDEEFF      |
+> | Energy Socket            | energysocket-DDEEFF |
+> | Watermeter               | watermeter-DDEEFF   |
+> | kWh meter (single phase) | kwhmeter-DDEEFF     |
+> | kWh meter (three phase)  | kwhmeter-DDEEFF     |
 
 Open a terminal/console and run the following script:
 
@@ -76,24 +77,24 @@ Create a docker compose file with the following content:
 version: '3'
 
 services:
-    hw2energyid:
-        image: ghcr.io/th3s4mur41/hw2energyid
-        environment:
-          - energyid=<the URL of the EnergyId webhook>
-          - =<the IP address of the  Meter device>
-        network_mode: host
-        dns: 
-          - 1.1.1.1
+  hw2energyid:
+    image: ghcr.io/th3s4mur41/hw2energyid
+    environment:
+      - energyid=<the URL of the EnergyId webhook>
+      - =<the IP address of the  Meter device>
+    network_mode: host
+    dns:
+      - 1.1.1.1
 ```
 
 > **Note**  
 > The `dns` section is required to resolve the EnergyId webhook URL.
-> If you are using a different DNS server, replace 
+> If you are using a different DNS server, replace
 
-| Environment Variable | Description |
-| --- | --- |
-| `energyid` | The URL of the EnergyID Webhook |
-| `meter` | The IP address of the Homewizard meter |
+| Environment Variable | Description                            |
+| -------------------- | -------------------------------------- |
+| `energyid`           | The URL of the EnergyID Webhook        |
+| `meter`              | The IP address of the Homewizard meter |
 
 ## Examples
 
@@ -119,6 +120,7 @@ npx hw2energyid --meter=hw-p1meter-<last 6 charachter of serial> --energyid=<url
 ```
 
 E.g.: The command with your data should look similar to this:
+
 ```sh
 npx hw2energyid --meter=hw-p1meter-65d8c7 --energyid=https://hooks.energyid.eu/services/WebhookIn/46535693-fe25-48ba-96fa-ea827e987318/OS753GD97A11
 ```
@@ -137,6 +139,7 @@ npx hw2energyid --meter=watermeter-<last 6 charachter of serial> --energyid=<url
 ```
 
 E.g.: The command with your data should look similar to this:
+
 ```sh
 npx hw2energyid --meter=watermeter-65d8c7 --offset=22.334 --energyid=https://hooks.energyid.eu/services/WebhookIn/46535693-fe25-48ba-96fa-ea827e987318/OS753GD97A11
 ```

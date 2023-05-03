@@ -24,8 +24,8 @@
 	"scripts": {
 		"build": "npm run build:docker",
 		"build:docker": "docker build --tag hw2energyid .",
-		"lint": "rome ci .",
-		"lint:fix": "rome format --write . && rome check --apply .",
+		"lint": "rome ci . && prettier --check --ignore-unknown .",
+		"lint:fix": "rome format --write . && rome check --apply . && prettier --write --ignore-unknown .",
 		"prepare": "husky install",
 		"release": "semantic-release",
 		"test": "echo \"Error: no test specified\" && exit 1"
@@ -39,6 +39,7 @@
 		"@th3s4mur41/release-config": "^2.0.3",
 		"husky": "^8.0.3",
 		"lint-staged": "^13.2.0",
+		"prettier": "^2.8.8",
 		"rome": "^12.0.0",
 		"semantic-release": "^21.0.2"
 	},
