@@ -1,3 +1,18 @@
+## [1.3.2](https://github.com/Th3S4mur41/hw2energyid/compare/v1.3.1...v1.3.2) (2023-05-03)
+
+
+### Bug Fixes
+
+* add automatic docker release ([e1e20d6](https://github.com/Th3S4mur41/hw2energyid/commit/e1e20d6310618d6dbecbb1bd4bd27a7bab73226d))
+* disable automatic docker release ([87f4ad1](https://github.com/Th3S4mur41/hw2energyid/commit/87f4ad1973e1213fcda1a2240173afc3a48aedac))
+
+
+### Dependencies and Other Build Updates
+
+* **release:** fix releaseconfig ([fc1fcd2](https://github.com/Th3S4mur41/hw2energyid/commit/fc1fcd2650d32adca4ffe8b3788a2585b76b4300))
+* **style:** format with prettier when not supported by rome ([5925493](https://github.com/Th3S4mur41/hw2energyid/commit/5925493ce4b1456ce613f392bb9f7e960c4e5f7a))
+* **temp:** disable docker release ([7eff4a0](https://github.com/Th3S4mur41/hw2energyid/commit/7eff4a0af35ce6b8cc4851e204949cc543e861f6))
+
 ## [1.3.0-alpha.1](https://github.com/Th3S4mur41/hw2energyid/compare/v1.2.0...v1.3.0-alpha.1) (2023-04-20)
 
 ### Features
