@@ -45,6 +45,14 @@
 				"assets": ["CHANGELOG.md", "package.json", "package-lock.json"]
 			}
 		],
-		"@semantic-release/github"
+		"@semantic-release/github",
+		"@semantic-release-plus/docker",
+		{
+			"name": {
+				"registry": "ghcr.io",
+				"namespace": "th3s4mur41",
+				"repository": "hw2energyid"
+			}
+		}
 	]
 }
