@@ -27,17 +27,20 @@
 		"lint": "rome ci .",
 		"lint:fix": "rome format --write . && rome check --apply .",
 		"prepare": "husky install",
-		"release": "npx semantic-release",
+		"release": "semantic-release",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^17.4.4",
 		"@commitlint/config-conventional": "^17.4.4",
 		"@semantic-release-plus/docker": "^3.1.2",
+		"@semantic-release/changelog": "^6.0.3",
+		"@semantic-release/git": "^10.0.1",
 		"@th3s4mur41/release-config": "^2.0.3",
 		"husky": "^8.0.3",
 		"lint-staged": "^13.2.0",
-		"rome": "^12.0.0"
+		"rome": "^12.0.0",
+		"semantic-release": "^21.0.2"
 	},
 	"dependencies": {
 		"node-cron": "^3.0.2",
