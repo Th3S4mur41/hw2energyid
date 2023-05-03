@@ -1,17 +1,60 @@
 {
-	"extends": "@th3s4mur41/release-config",
+	"branches": ["main", "next", { "name": "beta", "prerelease": true }, { "name": "alpha", "prerelease": true }],
 	"plugins": [
 		[
-			"@semantic-release-plus/docker",
+			"@semantic-release/commit-analyzer",
 			{
-				"name": {
-					"registry": "ghcr.io",
-					"namespace": "th3s4mur41",
-					"repository": "hw2energyid"
-				},
-
-				"skipLogin": true
+				"preset": "conventionalcommits",
+				"releaseRules": [
+					{
+						"type": "build",
+						"scope": "deps",
+						"release": "patch"
+					}
+				]
 			}
-		]
+		],
+		[
+			"@semantic-release/release-notes-generator",
+			{
+				"preset": "conventionalcommits",
+				"presetConfig": {
+					"types": [
+						{
+							"type": "feat",
+							"section": "Features"
+						},
+						{
+							"type": "fix",
+							"section": "Bug Fixes"
+						},
+						{
+							"type": "build",
+							"section": "Dependencies and Other Build Updates",
+							"hidden": false
+						}
+					]
+				}
+			}
+		],
+		"@semantic-release/changelog",
+		"@semantic-release/npm",
+		[
+			"@semantic-release/git",
+			{
+				"assets": ["CHANGELOG.md", "package.json", "package-lock.json"]
+			}
+		],
+		"@semantic-release/github",
+		"@semantic-release-plus/docker",
+		{
+			"name": {
+				"registry": "ghcr.io",
+				"namespace": "th3s4mur41",
+				"repository": "hw2energyid"
+			},
+
+			"skipLogin": true
+		}
 	]
 }
