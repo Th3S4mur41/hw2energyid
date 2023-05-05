@@ -116,3 +116,7 @@ dist
 *.mjs
 *.ts
 *.json
+
+# Generated files
+CHANGELOG.md
+package-lock.json
