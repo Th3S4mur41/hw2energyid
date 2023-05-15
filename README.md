@@ -81,7 +81,7 @@ services:
     image: ghcr.io/th3s4mur41/hw2energyid
     environment:
       - energyid=<the URL of the EnergyId webhook>
-      - =<the IP address of the  Meter device>
+      - meter=<the IP address of the  Meter device>
     network_mode: host
     dns:
       - 1.1.1.1
