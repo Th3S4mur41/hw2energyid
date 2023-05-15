@@ -16,4 +16,4 @@ ENV energyid ''
 ENV p1 ''
 ENV meter ${p1}
 
-CMD npx hw2energyid--energyid=${energyid} --meter=${meter} -r
+CMD npx hw2energyid --energyid=${energyid} --meter=${meter} -r
