@@ -39,7 +39,7 @@ jobs:
   release:
     name: '▶️ actions'
     needs: [npm-lint, docker, codeql]
-    uses: ./.github/workflows/semantic-release.yml
+    uses: ./.github/workflows/release.yml
     secrets:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN  }}
       GH_TOKEN: ${{ secrets.GH_TOKEN  }}
