@@ -1,3 +1,17 @@
+## [1.3.3](https://github.com/Th3S4mur41/hw2energyid/compare/v1.3.2...v1.3.3) (2023-05-17)
+
+
+### Bug Fixes
+
+* typo in dockerfile ([ccc75d4](https://github.com/Th3S4mur41/hw2energyid/commit/ccc75d4ea90bf1037d6259dacb8f07bf96157f8a))
+
+
+### Dependencies and Other Build Updates
+
+* **deps-dev:** bump @commitlint/cli from 17.6.1 to 17.6.3 ([#25](https://github.com/Th3S4mur41/hw2energyid/issues/25)) ([f1f9fde](https://github.com/Th3S4mur41/hw2energyid/commit/f1f9fdeb2b6b1c679e17403cb87aa287e7685dc6))
+* **deps-dev:** bump @commitlint/config-conventional ([#24](https://github.com/Th3S4mur41/hw2energyid/issues/24)) ([50a55ae](https://github.com/Th3S4mur41/hw2energyid/commit/50a55ae58f647a2e0de369f04065844425c54ad0))
+* **deps-dev:** bump rome from 12.0.0 to 12.1.0 ([#27](https://github.com/Th3S4mur41/hw2energyid/issues/27)) ([9ebbe01](https://github.com/Th3S4mur41/hw2energyid/commit/9ebbe01fd17da967fd8490816ce0c5397a26d19e))
+
 ## [1.3.2](https://github.com/Th3S4mur41/hw2energyid/compare/v1.3.1...v1.3.2) (2023-05-03)
 
 
