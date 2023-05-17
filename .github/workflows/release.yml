@@ -31,7 +31,7 @@ jobs:
       url: https://github.com/${{ github.repository }}/releases/tag/v${{ steps.release.outputs.version }}
 
     outputs:
-      version: ${{ steps.version.outputs.version }}
+      version: ${{ steps.release.outputs.version }}
 
     steps:
       - name: '☁️ Checkout repository'
@@ -58,11 +58,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_TOKEN: ${{ secrets.GH_TOKEN || secrets.GITHUB_TOKEN }} # Needed to push to GitHub
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }} # Needed to publish to NPM registry
-          # DOCKER_USERNAME: ${{ github.actor }}
-          # DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
           HUSKY: 0 # disable pre-commit hooks
-        run: npm run release
-
-      - name: '🏷️ Version'
-        id: version
-        run: echo "version=$(npm run env | grep npm_package_version | cut -d '=' -f 2)" >> $GITHUB_OUTPUT
+        run: |
+          npm run release
+          echo "version=$(npm run env | grep npm_package_version | cut -d '=' -f 2)" >> $GITHUB_OUTPUT
