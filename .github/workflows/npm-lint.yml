@@ -8,17 +8,17 @@ on:
 
 jobs:
   lint:
-    name: '🕵️‍♂️ NPM Lint'
+    name: 'NPM Lint'
     runs-on: ubuntu-latest
 
     steps:
-      - name: '☁️ Checkout repository'
+      - name: 'Checkout repository'
         uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.sha }}
           persist-credentials: false
 
-      - name: '⚙️ Use Node.js'
+      - name: 'Use Node.js'
         uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
@@ -28,5 +28,5 @@ jobs:
       - name: '⛓️ Install dependencies'
         run: npm ci --audit=false --prefer-offline --progress=false
 
-      - name: '✅ Lint code'
+      - name: 'Lint code'
         run: npm run lint

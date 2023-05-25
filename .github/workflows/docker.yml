@@ -23,7 +23,7 @@ env:
 
 jobs:
   docker:
-    name: '🐋 Docker'
+    name: 'Docker'
     runs-on: ubuntu-latest
 
     permissions:
@@ -31,7 +31,7 @@ jobs:
       packages: write
 
     steps:
-      - name: '☁️ Checkout repository'
+      - name: 'Checkout repository'
         uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.sha }}

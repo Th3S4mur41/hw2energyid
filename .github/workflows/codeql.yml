@@ -11,7 +11,7 @@ on:
 
 jobs:
   codeql:
-    name: '🪲 CodeQL'
+    name: 'CodeQL'
     runs-on: ubuntu-latest
 
     permissions:
@@ -28,7 +28,7 @@ jobs:
         # https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#changing-the-languages-that-are-analyzed
 
     steps:
-      - name: '☁️ Checkout repository'
+      - name: 'Checkout repository'
         uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.sha }}
@@ -38,7 +38,7 @@ jobs:
       #     rm -rf "${{ runner.temp }}/codeql_databases/${{ matrix.language }}"
 
       # Initializes the CodeQL tools for scanning.
-      - name: ' 🪡 Initialize CodeQL'
+      - name: ' Initialize CodeQL'
         uses: github/codeql-action/init@v2
         with:
           languages: ${{ matrix.language }}
@@ -52,8 +52,8 @@ jobs:
 
       # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
       # If this step fails, then you should remove it and run the build manually (see below)
-      - name: '🛠️ Autobuild'
+      - name: 'Autobuild'
         uses: github/codeql-action/autobuild@v2
 
-      - name: '🕵️ Perform CodeQL Analysis'
+      - name: 'Perform CodeQL Analysis'
         uses: github/codeql-action/analyze@v2

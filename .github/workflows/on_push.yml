@@ -17,11 +17,9 @@ concurrency:
 
 jobs:
   npm-lint:
-    name: '▶️ actions'
     uses: ./.github/workflows/npm-lint.yml
 
   codeql:
-    name: '▶️ actions'
     uses: ./.github/workflows/codeql.yml
     permissions:
       actions: read
@@ -29,7 +27,6 @@ jobs:
       security-events: write
 
   docker:
-    name: '▶️ actions'
     needs: [npm-lint]
     uses: ./.github/workflows/docker.yml
     permissions:
@@ -37,7 +34,6 @@ jobs:
       packages: write
 
   release:
-    name: '▶️ actions'
     needs: [npm-lint, docker, codeql]
     uses: ./.github/workflows/semantic-release.yml
     secrets:

@@ -11,18 +11,18 @@ on:
 
 jobs:
   lint-pr:
-    name: '🕵️‍♂️ Lint Commit Message'
+    name: 'Lint Commit Message'
     runs-on: ubuntu-latest
 
     steps:
-      - name: '☁️ Checkout repository'
+      - name: 'Checkout repository'
         uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.sha }}
           persist-credentials: false
 
       # check for the most recent release: https://github.com/Namchee/conventional-pr/releases
-      - name: '✅ Lint PR'
+      - name: 'Lint PR'
         uses: Namchee/conventional-pr@v0.12.1
         with:
           access_token: ${{ secrets.GITHUB_TOKEN }}
