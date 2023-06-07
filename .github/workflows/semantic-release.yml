@@ -28,10 +28,10 @@ jobs:
 
     environment:
       name: release
-      url: https://github.com/${{ github.repository }}/releases/tag/v${{ steps.release.outputs.version }}
+      url: https://github.com/${{ github.repository }}/releases/tag/v${{ steps.npm-release.outputs.version }}
 
     outputs:
-      version: ${{ steps.release.outputs.version }}
+      version: ${{ steps.npm-release.outputs.version }}
 
     steps:
       - name: 'Checkout repository'
@@ -53,7 +53,7 @@ jobs:
         run: npm ci --no-audit --prefer-offline --progress=false
 
       - name: 'Release'
-        id: release
+        id: npm-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_TOKEN: ${{ secrets.GH_TOKEN || secrets.GITHUB_TOKEN }} # Needed to push to GitHub
