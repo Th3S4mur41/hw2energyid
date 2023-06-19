@@ -1,3 +1,17 @@
+## [1.3.4](https://github.com/Th3S4mur41/hw2energyid/compare/v1.3.3...v1.3.4) (2023-06-19)
+
+
+### Dependencies and Other Build Updates
+
+* **deps-dev:** bump @commitlint/cli from 17.6.3 to 17.6.5 ([#31](https://github.com/Th3S4mur41/hw2energyid/issues/31)) ([9537e38](https://github.com/Th3S4mur41/hw2energyid/commit/9537e38271e16e51c16c412968408a4ae55a234d))
+* **deps-dev:** bump @commitlint/config-conventional ([#30](https://github.com/Th3S4mur41/hw2energyid/issues/30)) ([8e38fdb](https://github.com/Th3S4mur41/hw2energyid/commit/8e38fdb8ac8818ea9e8a98326411a8b18fbceb81))
+* **deps-dev:** bump rome from 12.1.0 to 12.1.1 ([#28](https://github.com/Th3S4mur41/hw2energyid/issues/28)) ([9b24d63](https://github.com/Th3S4mur41/hw2energyid/commit/9b24d638eeceff846b0aef67815c6c2a505d6300))
+* **deps-dev:** bump rome from 12.1.1 to 12.1.2 ([#29](https://github.com/Th3S4mur41/hw2energyid/issues/29)) ([55aa439](https://github.com/Th3S4mur41/hw2energyid/commit/55aa439bbbac525bd2260345549e6b4d608daddf))
+* **deps-dev:** bump rome from 12.1.2 to 12.1.3 ([#32](https://github.com/Th3S4mur41/hw2energyid/issues/32)) ([534459f](https://github.com/Th3S4mur41/hw2energyid/commit/534459f95c2ffafa3d52b7f4045ff331f594b0bd))
+* **deps-dev:** bump semantic-release from 21.0.2 to 21.0.3 ([#33](https://github.com/Th3S4mur41/hw2energyid/issues/33)) ([e53d126](https://github.com/Th3S4mur41/hw2energyid/commit/e53d126efa68786a13126cbabf403c3183c98579))
+* **deps-dev:** bump semantic-release from 21.0.3 to 21.0.5 ([#34](https://github.com/Th3S4mur41/hw2energyid/issues/34)) ([1416b7a](https://github.com/Th3S4mur41/hw2energyid/commit/1416b7ab0efc1255933abb1a53d4be13e1df58dd))
+* **deps:** bump Namchee/conventional-pr from 0.12.1 to 0.13.0 ([#35](https://github.com/Th3S4mur41/hw2energyid/issues/35)) ([bbd4d9b](https://github.com/Th3S4mur41/hw2energyid/commit/bbd4d9b2682e83f8ccc853685f6ffb60501058fe))
+
 ## [1.3.3](https://github.com/Th3S4mur41/hw2energyid/compare/v1.3.2...v1.3.3) (2023-05-17)
 
 
