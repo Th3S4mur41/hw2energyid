@@ -1,3 +1,28 @@
+## [1.3.5](https://github.com/Th3S4mur41/hw2energyid/compare/v1.3.4...v1.3.5) (2023-09-05)
+
+
+### Dependencies and Other Build Updates
+
+* **deps-dev:** bump @commitlint/cli from 17.6.5 to 17.6.6 ([#36](https://github.com/Th3S4mur41/hw2energyid/issues/36)) ([6fab563](https://github.com/Th3S4mur41/hw2energyid/commit/6fab5637372d15bde68c22bfafdfa34186fe87c3))
+* **deps-dev:** bump @commitlint/cli from 17.6.6 to 17.6.7 ([#42](https://github.com/Th3S4mur41/hw2energyid/issues/42)) ([382a73e](https://github.com/Th3S4mur41/hw2energyid/commit/382a73e939c2f12e49b0228a6055f2b9a4475de7))
+* **deps-dev:** bump @commitlint/cli from 17.6.7 to 17.7.0 ([#45](https://github.com/Th3S4mur41/hw2energyid/issues/45)) ([6d8f1c9](https://github.com/Th3S4mur41/hw2energyid/commit/6d8f1c92b3a9603a1261290e228eb4f469de2db7))
+* **deps-dev:** bump @commitlint/cli from 17.7.0 to 17.7.1 ([#47](https://github.com/Th3S4mur41/hw2energyid/issues/47)) ([788c730](https://github.com/Th3S4mur41/hw2energyid/commit/788c7308e0a1165c69d994bacd35460a541314e2))
+* **deps-dev:** bump @commitlint/config-conventional ([#37](https://github.com/Th3S4mur41/hw2energyid/issues/37)) ([e8cdcfa](https://github.com/Th3S4mur41/hw2energyid/commit/e8cdcfafd0c19f7cafe5904cff1b4f50781ff3d9))
+* **deps-dev:** bump @commitlint/config-conventional ([#43](https://github.com/Th3S4mur41/hw2energyid/issues/43)) ([7005025](https://github.com/Th3S4mur41/hw2energyid/commit/7005025c1724e05ae4dc04f328c3e8313fdd314c))
+* **deps-dev:** bump @commitlint/config-conventional ([#46](https://github.com/Th3S4mur41/hw2energyid/issues/46)) ([a911d2e](https://github.com/Th3S4mur41/hw2energyid/commit/a911d2e3a80e2eb636a238c64eba12e8c0f50f77))
+* **deps-dev:** bump lint-staged from 13.2.2 to 13.2.3 ([#39](https://github.com/Th3S4mur41/hw2energyid/issues/39)) ([9748f9c](https://github.com/Th3S4mur41/hw2energyid/commit/9748f9c0bf469049f72e9f9824210a8255fab6e8))
+* **deps-dev:** bump lint-staged from 13.2.3 to 14.0.0 ([#48](https://github.com/Th3S4mur41/hw2energyid/issues/48)) ([ef2bb96](https://github.com/Th3S4mur41/hw2energyid/commit/ef2bb964b4fa00813d34488e42e1c826455a912d))
+* **deps-dev:** bump lint-staged from 14.0.0 to 14.0.1 ([#51](https://github.com/Th3S4mur41/hw2energyid/issues/51)) ([0167454](https://github.com/Th3S4mur41/hw2energyid/commit/01674547822f14fc7237b23c06e4ce7003aaa678))
+* **deps-dev:** bump prettier from 2.8.8 to 3.0.0 ([#40](https://github.com/Th3S4mur41/hw2energyid/issues/40)) ([6dac6a4](https://github.com/Th3S4mur41/hw2energyid/commit/6dac6a44bf15b6939ebecba8fc368e33156fd5b4))
+* **deps-dev:** bump prettier from 3.0.0 to 3.0.1 ([#44](https://github.com/Th3S4mur41/hw2energyid/issues/44)) ([72b0432](https://github.com/Th3S4mur41/hw2energyid/commit/72b0432654d73837dda80b00429f2ff3032272d0))
+* **deps-dev:** bump prettier from 3.0.1 to 3.0.2 ([#49](https://github.com/Th3S4mur41/hw2energyid/issues/49)) ([e58ba33](https://github.com/Th3S4mur41/hw2energyid/commit/e58ba3302d5d47fea125ae09beb036b737bbd267))
+* **deps-dev:** bump prettier from 3.0.2 to 3.0.3 ([#53](https://github.com/Th3S4mur41/hw2energyid/issues/53)) ([c19f3e0](https://github.com/Th3S4mur41/hw2energyid/commit/c19f3e0ea14ad81fffd7a2d247539413623febdf))
+* **deps-dev:** bump semantic-release from 21.0.5 to 21.0.6 ([#38](https://github.com/Th3S4mur41/hw2energyid/issues/38)) ([7384387](https://github.com/Th3S4mur41/hw2energyid/commit/73843875cf6134873253bfae17b82643f2d0f922))
+* **deps-dev:** bump semantic-release from 21.0.6 to 21.0.7 ([#41](https://github.com/Th3S4mur41/hw2energyid/issues/41)) ([5bc525f](https://github.com/Th3S4mur41/hw2energyid/commit/5bc525f30b60dfb6951ce727c98d9be661c377c8))
+* **deps-dev:** bump semantic-release from 21.0.7 to 21.0.9 ([#50](https://github.com/Th3S4mur41/hw2energyid/issues/50)) ([d2f992d](https://github.com/Th3S4mur41/hw2energyid/commit/d2f992d801951d0ff90d54eca62329ed8a4149a0))
+* **deps-dev:** bump semantic-release from 21.0.9 to 21.1.1 ([#52](https://github.com/Th3S4mur41/hw2energyid/issues/52)) ([7e8e4dc](https://github.com/Th3S4mur41/hw2energyid/commit/7e8e4dc07afa2af7e75dbb2c4258e77e49702ea9))
+* **deps:** bump actions/checkout from 3 to 4 ([#54](https://github.com/Th3S4mur41/hw2energyid/issues/54)) ([a73e93e](https://github.com/Th3S4mur41/hw2energyid/commit/a73e93eb908497340e9c3d0a1fb780571edbd44c))
+
 ## [1.3.4](https://github.com/Th3S4mur41/hw2energyid/compare/v1.3.3...v1.3.4) (2023-06-19)
 
 
