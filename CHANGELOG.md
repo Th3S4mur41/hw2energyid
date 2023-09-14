@@ -1,3 +1,10 @@
+## [1.3.9](https://github.com/Th3S4mur41/hw2energyid/compare/v1.3.8...v1.3.9) (2023-09-14)
+
+
+### Dependencies and Other Build Updates
+
+* **deps:** bump docker/login-action from 2 to 3 ([#57](https://github.com/Th3S4mur41/hw2energyid/issues/57)) ([9c75697](https://github.com/Th3S4mur41/hw2energyid/commit/9c7569799454ccdc1720070a4ef5d9593404ab8f))
+
 ## [1.3.8](https://github.com/Th3S4mur41/hw2energyid/compare/v1.3.7...v1.3.8) (2023-09-14)
 
 
