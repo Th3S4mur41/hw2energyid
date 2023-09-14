@@ -1,3 +1,10 @@
+## [1.3.8](https://github.com/Th3S4mur41/hw2energyid/compare/v1.3.7...v1.3.8) (2023-09-14)
+
+
+### Dependencies and Other Build Updates
+
+* **deps:** bump docker/metadata-action from 4 to 5 ([#58](https://github.com/Th3S4mur41/hw2energyid/issues/58)) ([000bbd7](https://github.com/Th3S4mur41/hw2energyid/commit/000bbd77a33890c63d61f2b02bcbf7c19e1b3653))
+
 ## [1.3.7](https://github.com/Th3S4mur41/hw2energyid/compare/v1.3.6...v1.3.7) (2023-09-14)
 
 
