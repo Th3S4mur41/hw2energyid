@@ -1,3 +1,10 @@
+## [1.3.7](https://github.com/Th3S4mur41/hw2energyid/compare/v1.3.6...v1.3.7) (2023-09-14)
+
+
+### Dependencies and Other Build Updates
+
+* **deps:** bump docker/build-push-action from 4 to 5 ([#56](https://github.com/Th3S4mur41/hw2energyid/issues/56)) ([d93bb0d](https://github.com/Th3S4mur41/hw2energyid/commit/d93bb0dae610efe64570e7e0a4aabb77c04b64b0))
+
 ## [1.3.6](https://github.com/Th3S4mur41/hw2energyid/compare/v1.3.5...v1.3.6) (2023-09-07)
 
 
