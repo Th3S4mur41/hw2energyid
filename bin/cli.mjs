@@ -1,9 +1,9 @@
 #! /usr/bin/env node
 
+import cron from "node-cron";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import { init, sync } from "../src/index.mjs";
-import cron from "node-cron";
 
 // TODO: check node-cron for recursive solution
 // https://www.npmjs.com/package/node-cron

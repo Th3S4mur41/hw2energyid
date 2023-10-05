@@ -110,7 +110,7 @@ dist
 .history/
 .vscode/
 
-# Extensions covered by Rome
+# Extensions covered by Biome
 *.js
 *.cjs
 *.mjs
