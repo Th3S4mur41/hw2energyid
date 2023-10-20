@@ -102,18 +102,18 @@ const setReadings = (data) => {
 	const readingDate = new Date();
 	readingDate.setMinutes(0, 0, 0);
 
-	typeMap.forEach((type) => {
+	for (const type of typeMap) {
 		if (data[type[0]]) {
 			const value = (readingOffset + data[type[0]]).toFixed(4);
 			readings.push(new Reading(type, readingDate.toISOString(), value));
 		}
-	});
+	}
 	return readings;
 };
 
 const sendReadings = (readings, dryRun) => {
 	console.log(dryRun ? "Printing readings to console..." : "Sending readings to EnergyId Webhook...");
-	readings.forEach((reading) => {
+	for (const reading of readings) {
 		if (dryRun) {
 			console.log(`Reading to send: ${reading.json()}`);
 			return;
@@ -135,7 +135,7 @@ const sendReadings = (readings, dryRun) => {
 			.catch((e) => {
 				console.error(e.message);
 			});
-	});
+	}
 };
 
 /**
