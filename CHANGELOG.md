@@ -1,3 +1,20 @@
+## [1.3.10](https://github.com/Th3S4mur41/hw2energyid/compare/v1.3.9...v1.3.10) (2023-10-22)
+
+
+### Dependencies and Other Build Updates
+
+* **deps-dev:** bump @biomejs/biome from 1.0.0 to 1.2.2 ([#63](https://github.com/Th3S4mur41/hw2energyid/issues/63)) ([b883702](https://github.com/Th3S4mur41/hw2energyid/commit/b883702759234809690fa76d8796eff679f270f2))
+* **deps-dev:** bump @biomejs/biome from 1.2.2 to 1.3.0 ([#68](https://github.com/Th3S4mur41/hw2energyid/issues/68)) ([4e00f21](https://github.com/Th3S4mur41/hw2energyid/commit/4e00f2188d47e7d67e622c094761060ebe8777ab))
+* **deps-dev:** bump @commitlint/cli from 17.7.1 to 17.7.2 ([#62](https://github.com/Th3S4mur41/hw2energyid/issues/62)) ([0f2d68b](https://github.com/Th3S4mur41/hw2energyid/commit/0f2d68bc81d19b351d54e70e0b21fc48bfab5902))
+* **deps-dev:** bump @commitlint/cli from 17.7.2 to 17.8.0 ([#64](https://github.com/Th3S4mur41/hw2energyid/issues/64)) ([f35cbce](https://github.com/Th3S4mur41/hw2energyid/commit/f35cbce9ee6f6f82b335c9f975333cee9564effb))
+* **deps-dev:** bump @commitlint/config-conventional ([#66](https://github.com/Th3S4mur41/hw2energyid/issues/66)) ([ce98371](https://github.com/Th3S4mur41/hw2energyid/commit/ce9837152552de71f8738469c92c31435fcd0e63))
+* **deps-dev:** bump lint-staged from 14.0.1 to 15.0.1 ([#65](https://github.com/Th3S4mur41/hw2energyid/issues/65)) ([a5446a0](https://github.com/Th3S4mur41/hw2energyid/commit/a5446a015510bfd276a85e317412484c90b85353))
+* **deps-dev:** bump lint-staged from 15.0.1 to 15.0.2 ([#67](https://github.com/Th3S4mur41/hw2energyid/issues/67)) ([8dd7bf7](https://github.com/Th3S4mur41/hw2energyid/commit/8dd7bf7e167fc8c932e6efcb3aff92dfdc111fa5))
+* **deps-dev:** bump semantic-release from 21.1.1 to 22.0.0 ([#59](https://github.com/Th3S4mur41/hw2energyid/issues/59)) ([cccc580](https://github.com/Th3S4mur41/hw2energyid/commit/cccc580fc447f192896815b316ae01901e351f9b))
+* **deps-dev:** bump semantic-release from 22.0.0 to 22.0.1 ([#60](https://github.com/Th3S4mur41/hw2energyid/issues/60)) ([67946c2](https://github.com/Th3S4mur41/hw2energyid/commit/67946c2cd9d53f521a8f786c4675e14d5d8960ed))
+* **deps-dev:** bump semantic-release from 22.0.1 to 22.0.5 ([#61](https://github.com/Th3S4mur41/hw2energyid/issues/61)) ([ccb8f81](https://github.com/Th3S4mur41/hw2energyid/commit/ccb8f81fde520185aec2cfe91f945f785281af15))
+* **deps:** bump Namchee/conventional-pr from 0.14.0 to 0.14.1 ([#69](https://github.com/Th3S4mur41/hw2energyid/issues/69)) ([dd99afc](https://github.com/Th3S4mur41/hw2energyid/commit/dd99afcbabaccea25395627cf764fa10fbd528ce))
+
 ## [1.3.9](https://github.com/Th3S4mur41/hw2energyid/compare/v1.3.8...v1.3.9) (2023-09-14)
 
 
