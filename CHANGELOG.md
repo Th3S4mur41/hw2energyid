@@ -1,3 +1,13 @@
+## [1.3.11](https://github.com/Th3S4mur41/hw2energyid/compare/v1.3.10...v1.3.11) (2023-10-24)
+
+
+### Dependencies and Other Build Updates
+
+* **deps-dev:** bump @biomejs/biome from 1.3.0 to 1.3.1 ([#72](https://github.com/Th3S4mur41/hw2energyid/issues/72)) ([0978949](https://github.com/Th3S4mur41/hw2energyid/commit/09789495dbb62ed6d50deacb50f937e79904c5d2))
+* **deps-dev:** bump @commitlint/cli from 17.8.0 to 18.0.0 ([#70](https://github.com/Th3S4mur41/hw2energyid/issues/70)) ([efbaceb](https://github.com/Th3S4mur41/hw2energyid/commit/efbaceb91d877b45de05454349080d6a1cf243b2))
+* **deps-dev:** bump @commitlint/config-conventional ([#71](https://github.com/Th3S4mur41/hw2energyid/issues/71)) ([94676f4](https://github.com/Th3S4mur41/hw2energyid/commit/94676f49c3e7efb138d6951b1d4f33f87266b2e0))
+* **deps:** bump actions/setup-node from 3 to 4 ([#73](https://github.com/Th3S4mur41/hw2energyid/issues/73)) ([47f9494](https://github.com/Th3S4mur41/hw2energyid/commit/47f9494a349bb4d4eec1e995c558bc4142e36255))
+
 ## [1.3.10](https://github.com/Th3S4mur41/hw2energyid/compare/v1.3.9...v1.3.10) (2023-10-22)
 
 
