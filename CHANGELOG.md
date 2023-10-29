@@ -1,3 +1,14 @@
+## [1.3.12](https://github.com/Th3S4mur41/hw2energyid/compare/v1.3.11...v1.3.12) (2023-10-29)
+
+
+### Dependencies and Other Build Updates
+
+* **deps-dev:** bump @commitlint/cli from 18.0.0 to 18.1.0 ([#75](https://github.com/Th3S4mur41/hw2energyid/issues/75)) ([435d89e](https://github.com/Th3S4mur41/hw2energyid/commit/435d89e8b33f3186e9580d1f82fa4aa8092e244f))
+* **deps-dev:** bump @commitlint/cli from 18.1.0 to 18.2.0 ([#76](https://github.com/Th3S4mur41/hw2energyid/issues/76)) ([611a91b](https://github.com/Th3S4mur41/hw2energyid/commit/611a91b501d2bd5b855e411035f404877eeb1759))
+* **deps-dev:** bump @commitlint/config-conventional ([#74](https://github.com/Th3S4mur41/hw2energyid/issues/74)) ([2c77568](https://github.com/Th3S4mur41/hw2energyid/commit/2c7756896fb3c102181940a2f2aef5c071d3bf01))
+* **deps-dev:** bump @semantic-release-plus/docker from 3.1.2 to 3.1.3 ([#77](https://github.com/Th3S4mur41/hw2energyid/issues/77)) ([e3203b2](https://github.com/Th3S4mur41/hw2energyid/commit/e3203b280df0c9c6fbf6b3762e412b2bdb48afea))
+* **deps:** bump Namchee/conventional-pr from 0.14.1 to 0.15.1 ([#78](https://github.com/Th3S4mur41/hw2energyid/issues/78)) ([341858f](https://github.com/Th3S4mur41/hw2energyid/commit/341858f29eedaa24fcd1eab7e1a7d1bbe0e3d7cf))
+
 ## [1.3.11](https://github.com/Th3S4mur41/hw2energyid/compare/v1.3.10...v1.3.11) (2023-10-24)
 
 
