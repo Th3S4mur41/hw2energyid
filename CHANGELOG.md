@@ -1,3 +1,14 @@
+## [1.3.13](https://github.com/Th3S4mur41/hw2energyid/compare/v1.3.12...v1.3.13) (2023-11-08)
+
+
+### Dependencies and Other Build Updates
+
+* **deps-dev:** bump @biomejs/biome from 1.3.1 to 1.3.2 ([#79](https://github.com/Th3S4mur41/hw2energyid/issues/79)) ([46199fb](https://github.com/Th3S4mur41/hw2energyid/commit/46199fbabb9ae932a383a52430cb39a9118aec3b))
+* **deps-dev:** bump @biomejs/biome from 1.3.2 to 1.3.3 ([#80](https://github.com/Th3S4mur41/hw2energyid/issues/80)) ([14f0140](https://github.com/Th3S4mur41/hw2energyid/commit/14f0140960e68373e3f122d739f97fe1726724f0))
+* **deps-dev:** bump semantic-release from 22.0.5 to 22.0.6 ([#81](https://github.com/Th3S4mur41/hw2energyid/issues/81)) ([570b745](https://github.com/Th3S4mur41/hw2energyid/commit/570b745fa9a33da189de88a2e7d411af5a9a6d99))
+* **deps-dev:** bump semantic-release from 22.0.6 to 22.0.7 ([#82](https://github.com/Th3S4mur41/hw2energyid/issues/82)) ([24a8b24](https://github.com/Th3S4mur41/hw2energyid/commit/24a8b245157deb1ed62374c551506bd162bc8b89))
+* **deps:** bump node-cron from 3.0.2 to 3.0.3 ([#83](https://github.com/Th3S4mur41/hw2energyid/issues/83)) ([e6f617c](https://github.com/Th3S4mur41/hw2energyid/commit/e6f617c740655c751f62ebe11829f8f151777ca5))
+
 ## [1.3.12](https://github.com/Th3S4mur41/hw2energyid/compare/v1.3.11...v1.3.12) (2023-10-29)
 
 
