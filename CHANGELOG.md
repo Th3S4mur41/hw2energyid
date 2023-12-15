@@ -1,3 +1,27 @@
+## [1.3.14](https://github.com/Th3S4mur41/hw2energyid/compare/v1.3.13...v1.3.14) (2023-12-15)
+
+
+### Dependencies and Other Build Updates
+
+* **deps-dev:** bump @biomejs/biome from 1.3.3 to 1.4.0 ([#93](https://github.com/Th3S4mur41/hw2energyid/issues/93)) ([deadd2e](https://github.com/Th3S4mur41/hw2energyid/commit/deadd2ef8060090c35a16987e73bbab5606173bb))
+* **deps-dev:** bump @biomejs/biome from 1.4.0 to 1.4.1 ([#94](https://github.com/Th3S4mur41/hw2energyid/issues/94)) ([d281190](https://github.com/Th3S4mur41/hw2energyid/commit/d281190b0cf6c73a011c6f51c77ded7397743e75))
+* **deps-dev:** bump @commitlint/cli from 18.2.0 to 18.4.1 ([#86](https://github.com/Th3S4mur41/hw2energyid/issues/86)) ([6b300ed](https://github.com/Th3S4mur41/hw2energyid/commit/6b300ed18ac988601d5153cdc9ccefb217ba4789))
+* **deps-dev:** bump @commitlint/cli from 18.4.1 to 18.4.2 ([#88](https://github.com/Th3S4mur41/hw2energyid/issues/88)) ([9b6e9a5](https://github.com/Th3S4mur41/hw2energyid/commit/9b6e9a52581235c7ca531c609109e72f2501e35f))
+* **deps-dev:** bump @commitlint/cli from 18.4.2 to 18.4.3 ([#91](https://github.com/Th3S4mur41/hw2energyid/issues/91)) ([6ad7399](https://github.com/Th3S4mur41/hw2energyid/commit/6ad7399bc76048ad97e61be45157df444e2cfd3d))
+* **deps-dev:** bump @commitlint/config-conventional ([#85](https://github.com/Th3S4mur41/hw2energyid/issues/85)) ([991a9cb](https://github.com/Th3S4mur41/hw2energyid/commit/991a9cba856f843655e8d360554dabb584343a7c))
+* **deps-dev:** bump @commitlint/config-conventional ([#89](https://github.com/Th3S4mur41/hw2energyid/issues/89)) ([ec82087](https://github.com/Th3S4mur41/hw2energyid/commit/ec8208724cb769d02cd8699f6dc0f5d8cb1357ba))
+* **deps-dev:** bump @commitlint/config-conventional ([#92](https://github.com/Th3S4mur41/hw2energyid/issues/92)) ([20d7130](https://github.com/Th3S4mur41/hw2energyid/commit/20d71303711713518ab2b8371f48bb54b5657f77))
+* **deps-dev:** bump lint-staged from 15.0.2 to 15.1.0 ([#84](https://github.com/Th3S4mur41/hw2energyid/issues/84)) ([5790a29](https://github.com/Th3S4mur41/hw2energyid/commit/5790a29464717c152a316b623e5fde18606e4892))
+* **deps-dev:** bump lint-staged from 15.1.0 to 15.2.0 ([#95](https://github.com/Th3S4mur41/hw2energyid/issues/95)) ([707eaf6](https://github.com/Th3S4mur41/hw2energyid/commit/707eaf66f83020ff38c4cfafebd1cff1bde552cf))
+* **deps-dev:** bump prettier from 3.0.3 to 3.1.0 ([#87](https://github.com/Th3S4mur41/hw2energyid/issues/87)) ([212e470](https://github.com/Th3S4mur41/hw2energyid/commit/212e470ba99b9d81d668693b0701aef02bdac431))
+* **deps-dev:** bump prettier from 3.1.0 to 3.1.1 ([#98](https://github.com/Th3S4mur41/hw2energyid/issues/98)) ([09e021d](https://github.com/Th3S4mur41/hw2energyid/commit/09e021de20e29a683395de92d203ab223b8a91ad))
+* **deps-dev:** bump semantic-release from 22.0.10 to 22.0.11 ([#99](https://github.com/Th3S4mur41/hw2energyid/issues/99)) ([c4a29a0](https://github.com/Th3S4mur41/hw2energyid/commit/c4a29a077e52a8a390f228cd2f4bede485cd77f2))
+* **deps-dev:** bump semantic-release from 22.0.11 to 22.0.12 ([#100](https://github.com/Th3S4mur41/hw2energyid/issues/100)) ([52880cf](https://github.com/Th3S4mur41/hw2energyid/commit/52880cf3fe57caaac6190f723124ac56eee20b0b))
+* **deps-dev:** bump semantic-release from 22.0.7 to 22.0.8 ([#90](https://github.com/Th3S4mur41/hw2energyid/issues/90)) ([f28ada0](https://github.com/Th3S4mur41/hw2energyid/commit/f28ada036d89057415556bbced31e675468e6e34))
+* **deps-dev:** bump semantic-release from 22.0.8 to 22.0.9 ([#96](https://github.com/Th3S4mur41/hw2energyid/issues/96)) ([1f1cef1](https://github.com/Th3S4mur41/hw2energyid/commit/1f1cef11ae5c38e5bbd283ab0695aade0c814645))
+* **deps-dev:** bump semantic-release from 22.0.9 to 22.0.10 ([#97](https://github.com/Th3S4mur41/hw2energyid/issues/97)) ([80a1a31](https://github.com/Th3S4mur41/hw2energyid/commit/80a1a31b14cd67066fc0ba279f706a2a31e925b0))
+* **deps:** bump github/codeql-action from 2 to 3 ([#101](https://github.com/Th3S4mur41/hw2energyid/issues/101)) ([4805f4f](https://github.com/Th3S4mur41/hw2energyid/commit/4805f4f99791f61e67706cca94ecad106c1a3b71))
+
 ## [1.3.13](https://github.com/Th3S4mur41/hw2energyid/compare/v1.3.12...v1.3.13) (2023-11-08)
 
 
