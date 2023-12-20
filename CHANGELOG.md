@@ -1,3 +1,10 @@
+## [1.3.15](https://github.com/Th3S4mur41/hw2energyid/compare/v1.3.14...v1.3.15) (2023-12-20)
+
+
+### Dependencies and Other Build Updates
+
+* **deps:** bump Namchee/conventional-pr from 0.15.1 to 0.15.4 ([#102](https://github.com/Th3S4mur41/hw2energyid/issues/102)) ([8fbcfce](https://github.com/Th3S4mur41/hw2energyid/commit/8fbcfcecfa278f9f04418de6789ce82dff9fd150))
+
 ## [1.3.14](https://github.com/Th3S4mur41/hw2energyid/compare/v1.3.13...v1.3.14) (2023-12-15)
 
 
