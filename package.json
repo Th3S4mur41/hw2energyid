@@ -40,7 +40,7 @@
 		"lint-staged": "^15.0.1",
 		"prettier": "^3.0.0",
 		"@biomejs/biome": "1.7.3",
-		"semantic-release": "^23.0.0"
+		"semantic-release": "^24.0.0"
 	},
 	"dependencies": {
 		"node-cron": "^3.0.2",
