@@ -26,7 +26,7 @@
 		"build:docker": "docker build --tag hw2energyid .",
 		"lint": "biome ci . && prettier --check --ignore-unknown .",
 		"lint:fix": "biome check --apply . && prettier --write --ignore-unknown .",
-		"prepare": "husky install",
+		"prepare": "husky",
 		"release": "semantic-release",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
@@ -46,5 +46,8 @@
 	"dependencies": {
 		"node-cron": "^3.0.2",
 		"yargs": "^17.7.1"
+	},
+	"overrides": {
+		"conventional-changelog-conventionalcommits": ">= 8.0.0"
 	}
 }
