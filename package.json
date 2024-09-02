@@ -2,15 +2,7 @@
 	"name": "hw2energyid",
 	"version": "1.3.17",
 	"description": "A tool to synchronize data from HomeWizard to EnergyID",
-	"keywords": [
-		"homewizard",
-		"homewizard-energy",
-		"homewizard-p1-meter",
-		"energyid",
-		"sync",
-		"api",
-		"webhook"
-	],
+	"keywords": ["homewizard", "homewizard-energy", "homewizard-p1-meter", "energyid", "sync", "api", "webhook"],
 	"author": "Michaël Vanderheyden <hello@th3s4mur41.me> (https://th3s4mur41.me)",
 	"license": "MIT",
 	"homepage": "https://github.com/Th3S4mur41/hw2energyid",
@@ -36,6 +28,7 @@
 		"lint:fix": "biome check --apply . && prettier --write --ignore-unknown .",
 		"prepare": "husky",
 		"release": "semantic-release",
+		"postversion": "npm run lint:fix",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"devDependencies": {
