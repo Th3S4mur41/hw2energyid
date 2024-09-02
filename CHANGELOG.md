@@ -1,3 +1,9 @@
+## [1.3.18](https://github.com/Th3S4mur41/hw2energyid/compare/v1.3.17...v1.3.18) (2024-09-02)
+
+### Bug Fixes
+
+* add missing scope for docker release ([e67b225](https://github.com/Th3S4mur41/hw2energyid/commit/e67b225719d12f66dc4515dec6bf7452879edb5b))
+
 ## [1.3.17](https://github.com/Th3S4mur41/hw2energyid/compare/v1.3.16...v1.3.17) (2024-09-02)
 
 ### Bug Fixes
