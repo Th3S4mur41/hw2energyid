@@ -58,8 +58,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_TOKEN: ${{ secrets.GH_TOKEN || secrets.GITHUB_TOKEN }} # Needed to push to GitHub
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }} # Needed to publish to NPM registry
-          # DOCKER_USERNAME: ${{ github.actor }}
-          # DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+          DOCKER_REGISTRY_USER: ${{ github.actor }}
+          DOCKER_REGISTRY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
           HUSKY: 0 # disable pre-commit hooks
         run: |
           npm run release
