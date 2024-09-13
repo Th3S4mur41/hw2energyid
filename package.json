@@ -1,5 +1,5 @@
 {
-	"name": "hw2energyid",
+	"name": "homewizard-webhooks",
 	"version": "1.3.18",
 	"description": "A tool to synchronize data from HomeWizard to EnergyID",
 	"keywords": ["homewizard", "homewizard-energy", "homewizard-p1-meter", "energyid", "sync", "api", "webhook"],
@@ -20,11 +20,11 @@
 	},
 	"main": ".src/index.mjs",
 	"bin": {
-		"hw2energyid": "bin/cli.mjs"
+		"homewizard-webhooks ": "bin/cli.mjs"
 	},
 	"scripts": {
 		"build": "npm run build:docker",
-		"build:docker": "docker build --tag hw2energyid .",
+		"build:docker": "docker build --tag homewizard-webhooks .",
 		"lint": "biome ci . && prettier --check --ignore-unknown .",
 		"lint:fix": "biome check --apply . && prettier --write --ignore-unknown .",
 		"prepare": "husky",

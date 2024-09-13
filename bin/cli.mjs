@@ -53,7 +53,7 @@ console.log("");
 
 init(argv.meter, argv.energyid, argv.offset);
 if (argv.r) {
-	console.log("Scheduling hw2energyid to run every hour");
+	console.log("Scheduling homewizard-webhooks to run every hour");
 	cron.schedule("1 * * * *", () => {
 		sync(argv.d);
 	});
