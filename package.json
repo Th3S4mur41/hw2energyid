@@ -25,8 +25,8 @@
 	"scripts": {
 		"build": "npm run build:docker",
 		"build:docker": "docker build --tag homewizard-webhooks .",
-		"lint": "biome ci . && prettier --check --ignore-unknown .",
-		"lint:fix": "biome check --apply . && prettier --write --ignore-unknown .",
+		"lint": "prettier --check --ignore-unknown --no-error-on-unmatched-pattern . && biome ci .",
+		"lint:fix": "prettier --write --ignore-unknown --no-error-on-unmatched-pattern . && biome check --write .",
 		"prepare": "husky",
 		"release": "semantic-release",
 		"postversion": "npm run lint:fix",

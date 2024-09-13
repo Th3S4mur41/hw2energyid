@@ -116,6 +116,7 @@ dist
 *.mjs
 *.ts
 *.json
+*.css
 
 # Generated files
 CHANGELOG.md
