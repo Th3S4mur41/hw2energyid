@@ -1,3 +1,17 @@
+## [2.0.0-alpha.1](https://github.com/Th3S4mur41/hw2energyid/compare/v1.3.18...v2.0.0-alpha.1) (2024-09-13)
+
+### ⚠ BREAKING CHANGES
+
+* npm package and docker image renamed to "homewizard-webhooks"
+
+### chore
+
+* prepare renaming to homewizard-webhooks ([0e574df](https://github.com/Th3S4mur41/hw2energyid/commit/0e574df1ceb5c4911a244920da6b50de3353eb86))
+
+### Dependencies and Other Build Updates
+
+* generate provenance statements for npm package ([94acf8e](https://github.com/Th3S4mur41/hw2energyid/commit/94acf8e4051e9ae1f1f9b7c023aa0811f1f29de7))
+
 ## [1.3.18](https://github.com/Th3S4mur41/hw2energyid/compare/v1.3.17...v1.3.18) (2024-09-02)
 
 ### Bug Fixes
