@@ -1,10 +1,11 @@
+import { Device } from "./homewizard/device.mjs";
+
 /**
  * energyid-homewizard-connector
  */
 let initialized = false;
-let hwe_api = "";
+let hweDevice;
 let energyid_hook = "";
-let readingOffset = 0;
 
 const typeMap = [
 	[
@@ -76,26 +77,8 @@ class Reading {
 }
 
 /**
- *  Provate functions
+ *  Private functions
  */
-
-const getData = async () => {
-	console.log("Retrieving data from Homewizard API...");
-
-	return fetch(hwe_api)
-		.then((result) => {
-			console.log("HomeWizard Meter data:");
-			return result.json();
-		})
-		.then((data) => {
-			console.log(data);
-			return data;
-		})
-		.catch((error) => {
-			console.error(`Cannot retreive data from ${hwe_api}`);
-		});
-};
-
 const setReadings = (data) => {
 	console.log(data);
 	const readings = [];
@@ -104,7 +87,7 @@ const setReadings = (data) => {
 
 	for (const type of typeMap) {
 		if (data[type[0]]) {
-			const value = (readingOffset + data[type[0]]).toFixed(4);
+			const value = (hweDevice.offset + data[type[0]]).toFixed(4);
 			readings.push(new Reading(type, readingDate.toISOString(), value));
 		}
 	}
@@ -143,15 +126,9 @@ const sendReadings = (readings, dryRun) => {
  */
 
 export const init = (hwe, energyidWebhook, offset = 0) => {
-	hwe_api = `http://${hwe}/api/v1/data/`;
+	hweDevice = new Device(hwe, hwe, offset);
 	energyid_hook = energyidWebhook;
-	initialized = hwe_api && energyid_hook;
-
-	if (Number.isNaN(Number.parseFloat(offset))) {
-		readingOffset = 0;
-	} else {
-		readingOffset = Number.parseFloat(offset);
-	}
+	initialized = hweDevice && energyid_hook;
 };
 
 export const sync = async (dryRun = false) => {
@@ -160,7 +137,7 @@ export const sync = async (dryRun = false) => {
 		return;
 	}
 
-	const data = await getData();
+	const data = await hweDevice.update();
 	if (!data) {
 		return;
 	}
