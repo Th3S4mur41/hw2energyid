@@ -1,0 +1,45 @@
+# This is the workflow to automatically approve and merge dependabot PRs
+#
+name: Dependabot automation
+
+on:
+  workflow_run:
+    workflows: [Checks]
+    types: [completed]
+    branches: [main, next, beta, alpha]
+
+concurrency:
+  # group: ${{ github.workflow }}_${{ github.head_ref || github.ref || github.run_id }}
+  # Use the name of the triggering workflow run as the concurrency group to avoid conccurency issues
+  group: ${{ github.workflow }}_${{ github.event.workflow_run.head_branch || github.ref_name || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  dependabot:
+    name: '🤖 Dependabot Automation'
+    runs-on: ubuntu-latest
+    if: ${{ github.actor == 'dependabot[bot]' && github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - name: Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v2
+        with:
+          github-token: '${{ secrets.GITHUB_TOKEN }}'
+          skip-verification: true # skip actor verification to avoid error on workflow-run event. Actor is checked on the job level
+
+      - name: Enable auto-merge for Dependabot PRs
+        continue-on-error: true
+        run: gh pr merge --auto --squash "$PR_URL"
+        env:
+          PR_URL: ${{github.event.workflow_run.html_url}}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN || secrets.GITHUB_TOKEN }} # GH_TOKEN needed to trigger follow up worlflow: https://github.com/fastify/github-action-merge-dependabot/issues/134
+
+      - name: Approve a PR
+        continue-on-error: true
+        # Auto merge all dependencies with patch or minor version updates
+        if: ${{(steps.metadata.outputs.update-type == 'version-update:semver-patch') || (steps.metadata.outputs.update-type == 'version-update:semver-minor')}}
+        run: gh pr review --approve "$PR_URL"
+        env:
+          PR_URL: ${{github.event.workflow_run.html_url}}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN || secrets.GITHUB_TOKEN }} # GH_TOKEN needed to approve PR as code owner on protected branches
