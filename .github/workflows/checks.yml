@@ -34,7 +34,7 @@ jobs:
 
   dependencies:
     name: '▶️ actions'
-    needs: [lint-pr]    
+    needs: [lint-pr]
     uses: ./.github/workflows/dependencies.yml
     permissions:
       pull-requests: write
