@@ -6,13 +6,17 @@ on:
   workflow_run:
     workflows: [Checks]
     types: [completed]
-    branches: [main, next, beta, alpha]
+    branches-ignore: [main, next, beta, alpha]
 
 concurrency:
   # group: ${{ github.workflow }}_${{ github.head_ref || github.ref || github.run_id }}
   # Use the name of the triggering workflow run as the concurrency group to avoid conccurency issues
   group: ${{ github.workflow }}_${{ github.event.workflow_run.head_branch || github.ref_name || github.run_id }}
   cancel-in-progress: true
+
+# Declare default permissions as read only.
+permissions:
+  contents: read
 
 jobs:
   dependabot:
