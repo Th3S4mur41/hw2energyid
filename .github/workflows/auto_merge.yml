@@ -31,6 +31,7 @@ jobs:
         with:
           github-token: '${{ secrets.GITHUB_TOKEN }}'
           skip-verification: true # skip actor verification to avoid error on workflow-run event. Actor is checked on the job level
+          skip-commit-verification: true # skip commit verification to avoid error on workflow-run event. Commit is checked on the job level
 
       - name: Enable auto-merge for Dependabot PRs
         continue-on-error: true
