@@ -29,6 +29,8 @@ jobs:
         id: metadata
         uses: dependabot/fetch-metadata@v2
 
+      - uses: actions/checkout@v4
+
       - name: Enable auto-merge for Dependabot PRs
         continue-on-error: true
         run: gh pr merge --auto --squash "$PR_URL"
