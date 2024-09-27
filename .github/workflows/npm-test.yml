@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   lint:
-    name: '🕵️‍♂️ NPM Lint'
+    name: '🕵️‍♂️ NPM Test'
     runs-on: ubuntu-latest
 
     steps:
