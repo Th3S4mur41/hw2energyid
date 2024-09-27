@@ -1,4 +1,5 @@
 import { Device } from "./homewizard/device.mjs";
+import { Webhook } from "./webhooks/webhook.mjs";
 
 /**
  * energyid-homewizard-connector
@@ -61,6 +62,8 @@ const typeMap = [
 ];
 
 class Reading {
+	remoteName;
+
 	constructor(type, date, value) {
 		this.remoteId = type[1].id;
 		this.remoteName = type[1].name;
@@ -96,28 +99,19 @@ const setReadings = (data) => {
 
 const sendReadings = (readings, dryRun) => {
 	console.log(dryRun ? "Printing readings to console..." : "Sending readings to EnergyId Webhook...");
+	const webhook = new Webhook("EnergyId", energyid_hook, "POST");
+
 	for (const reading of readings) {
 		if (dryRun) {
 			console.log(`Reading to send: ${reading.json()}`);
 			return;
 		}
-		fetch(energyid_hook, {
-			method: "POST",
-			headers: {
-				Accept: "application/json",
-				"Content-Type": "application/json",
-			},
-			body: reading.json(),
-		})
-			.then((response) => {
-				if (!response.ok) {
-					throw new Error(`Error sending reading: ${reading.json()}`);
-				}
-				console.log(`Sending reading: ${reading.json()}`);
-			})
-			.catch((e) => {
-				console.error(e.message);
-			});
+
+		try {
+			webhook.send(reading.json());
+		} catch (e) {
+			// console.error(e.message);
+		}
 	}
 };
 
