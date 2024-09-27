@@ -2,15 +2,7 @@
 	"name": "homewizard-webhooks",
 	"version": "2.0.0-alpha.1",
 	"description": "A tool to synchronize data from HomeWizard to EnergyID",
-	"keywords": [
-		"homewizard",
-		"homewizard-energy",
-		"homewizard-p1-meter",
-		"energyid",
-		"sync",
-		"api",
-		"webhook"
-	],
+	"keywords": ["homewizard", "homewizard-energy", "homewizard-p1-meter", "energyid", "sync", "api", "webhook"],
 	"author": "Michaël Vanderheyden <hello@th3s4mur41.me> (https://th3s4mur41.me)",
 	"license": "MIT",
 	"homepage": "https://github.com/Th3S4mur41/hw2energyid",
@@ -33,8 +25,8 @@
 	"scripts": {
 		"build": "npm run build:docker",
 		"build:docker": "docker build --tag homewizard-webhooks .",
-		"lint": "prettier --check --ignore-unknown --no-error-on-unmatched-pattern . && biome ci .",
-		"lint:fix": "prettier --write --ignore-unknown --no-error-on-unmatched-pattern . && biome check --write .",
+		"lint": "biome ci . && prettier --check --ignore-unknown --no-error-on-unmatched-pattern .",
+		"lint:fix": "biome check --write . && prettier --write --ignore-unknown --no-error-on-unmatched-pattern .",
 		"prepare": "husky",
 		"release": "semantic-release",
 		"postversion": "npm run lint:fix",
