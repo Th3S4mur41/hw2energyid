@@ -1,0 +1,57 @@
+#
+# Run all checks on PRs and pushes
+#
+name: Checks
+
+# Controls when the action will run.
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+  push:
+    branches: [main, next, beta, alpha]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}_${{ github.head_ref || github.ref_name || github.run_id }}
+  cancel-in-progress: true
+
+# Declare default permissions as read only.
+permissions:
+  contents: read
+
+jobs:
+  lint-pr:
+    name: '▶️ actions'
+    uses: ./.github/workflows/lint-pr.yml
+
+  codeql:
+    name: '▶️ actions'
+    needs: [lint-pr]
+    uses: ./.github/workflows/codeql.yml
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+  dependencies:
+    name: '▶️ actions'
+    needs: [lint-pr]
+    uses: ./.github/workflows/dependencies.yml
+    permissions:
+      pull-requests: write
+      contents: write
+
+  npm-lint:
+    name: '▶️ actions'
+    uses: ./.github/workflows/npm-lint.yml
+
+  docker:
+    name: '▶️ actions'
+    needs: [npm-lint]
+    uses: ./.github/workflows/docker.yml
+    permissions:
+      contents: read
+      packages: write

@@ -15,17 +15,21 @@ on:
         description: The newly released version
         value: ${{ jobs.release.outputs.version }}
 
+# Declare default permissions as read only.
 permissions:
-  contents: write
-  issues: write
-  pull-requests: write
-  packages: write
-  id-token: write
+  contents: read
 
 jobs:
   release:
     name: '🏷️ Semantic Release'
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      packages: write
+      id-token: write
 
     environment:
       name: release
