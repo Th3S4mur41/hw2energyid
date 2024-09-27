@@ -25,12 +25,12 @@
 	"scripts": {
 		"build": "npm run build:docker",
 		"build:docker": "docker build --tag homewizard-webhooks .",
-		"lint": "prettier --check --ignore-unknown --no-error-on-unmatched-pattern . && biome ci .",
-		"lint:fix": "prettier --write --ignore-unknown --no-error-on-unmatched-pattern . && biome check --write .",
+		"lint": "biome ci . && prettier --check --ignore-unknown --no-error-on-unmatched-pattern .",
+		"lint:fix": "biome check --write . && prettier --write --ignore-unknown --no-error-on-unmatched-pattern .",
 		"prepare": "husky",
 		"release": "semantic-release",
 		"postversion": "npm run lint:fix",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "vitest run --coverage"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.1",
@@ -39,10 +39,12 @@
 		"@commitlint/config-conventional": "^19.0.0",
 		"@semantic-release/changelog": "^6.0.3",
 		"@semantic-release/git": "^10.0.1",
+		"@vitest/coverage-v8": "^2.1.1",
 		"husky": "^9.0.5",
 		"lint-staged": "^15.0.1",
 		"prettier": "^3.0.0",
-		"semantic-release": "^24.0.0"
+		"semantic-release": "^24.0.0",
+		"vitest": "^2.1.1"
 	},
 	"dependencies": {
 		"node-cron": "^3.0.2",
