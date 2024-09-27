@@ -125,10 +125,10 @@ const sendReadings = (readings, dryRun) => {
  * Public functions
  */
 
-export const init = (hwe, energyidWebhook, offset = 0) => {
-	hweDevice = new Device(hwe, hwe, offset);
+export const init = async (hwe, energyidWebhook, offset = 0) => {
+	hweDevice = await Device.init(hwe, offset);
 	energyid_hook = energyidWebhook;
-	initialized = hweDevice && energyid_hook;
+	initialized = hweDevice instanceof Device && energyid_hook;
 };
 
 export const sync = async (dryRun = false) => {

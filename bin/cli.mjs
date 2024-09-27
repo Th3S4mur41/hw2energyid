@@ -51,7 +51,7 @@ if (!(argv.meter && argv.energyid)) {
 console.log(`${process.env.npm_package_name} ${process.env.npm_package_version}`);
 console.log("");
 
-init(argv.meter, argv.energyid, argv.offset);
+await init(argv.meter, argv.energyid, argv.offset);
 if (argv.r) {
 	console.log("Scheduling homewizard-webhooks to run every hour");
 	cron.schedule("1 * * * *", () => {
