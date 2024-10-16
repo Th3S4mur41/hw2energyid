@@ -19,6 +19,26 @@ export class Webhook {
 		this.#method = METHODS.has(method.toUpperCase()) ? method.toUpperCase() : "GET";
 	}
 
+	/**
+	 * Getter and setter
+	 */
+
+	get name() {
+		return this.#name;
+	}
+
+	get url() {
+		return this.#url;
+	}
+
+	get method() {
+		return this.#method;
+	}
+
+	/**
+	 *
+	 */
+
 	send = async (data = "") => {
 		const jsonData = JSON.parse(data);
 		console.log(`[${this.#name}] Sending ${jsonData.remoteName || "data"}...`);
@@ -37,9 +57,10 @@ export class Webhook {
 				throw new Error();
 			}
 
-			console.log(`[${this.#name}] Sent reading: ${reading.json()}`);
+			console.log(`[${this.#name}] Sent reading: ${data}`);
 		} catch (e) {
 			console.error(`[${this.#name}] Error sending reading: ${data}`);
+			throw new Error("Failed to send data");
 		}
 	};
 }
