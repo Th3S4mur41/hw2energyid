@@ -57,7 +57,7 @@ describe("Webhook", () => {
 
 		const webhook = new Webhook(mockName, mockUrl, mockMethod);
 
-		await webhook.send(mockData);
+		await expect(webhook.send(mockData)).rejects.toThrow("Failed to send data");
 
 		expect(fetch).toHaveBeenCalledWith(mockUrl, {
 			method: mockMethod,

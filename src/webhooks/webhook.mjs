@@ -57,9 +57,10 @@ export class Webhook {
 				throw new Error();
 			}
 
-			console.log(`[${this.#name}] Sent reading: ${reading.json()}`);
+			console.log(`[${this.#name}] Sent reading: ${data}`);
 		} catch (e) {
 			console.error(`[${this.#name}] Error sending reading: ${data}`);
+			throw new Error("Failed to send data");
 		}
 	};
 }

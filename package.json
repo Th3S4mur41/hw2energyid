@@ -18,12 +18,16 @@
 		"access": "public",
 		"provenance": true
 	},
-	"main": ".src/index.mjs",
+	"type": "module",
+	"main": "index.mjs",
 	"bin": {
 		"homewizard-webhooks ": "bin/cli.mjs"
 	},
 	"scripts": {
-		"build": "npm run build:docker",
+		"clean": "npx rimraf dist bin coverage && git clean -Xf",
+		"dev": "npm run build:cli -- --watch",
+		"build": "npm run build:cli && npm run build:docker",
+		"build:cli": "node esbuild.config.mjs",
 		"build:docker": "docker build --tag homewizard-webhooks .",
 		"lint": "biome ci . && prettier --check --ignore-unknown --no-error-on-unmatched-pattern .",
 		"lint:fix": "biome check --write . && prettier --write --ignore-unknown --no-error-on-unmatched-pattern .",
@@ -40,6 +44,7 @@
 		"@semantic-release/changelog": "^6.0.3",
 		"@semantic-release/git": "^10.0.1",
 		"@vitest/coverage-v8": "^2.1.1",
+		"esbuild": "^0.24.0",
 		"husky": "^9.0.5",
 		"lint-staged": "^15.0.1",
 		"prettier": "^3.0.0",
