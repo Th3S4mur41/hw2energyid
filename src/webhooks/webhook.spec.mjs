@@ -8,14 +8,21 @@ describe("Webhook", () => {
 	const mockName = "TestWebhook";
 	const mockUrl = "https://example.com/webhook";
 	const mockMethod = "POST";
-	const mockData = JSON.stringify({ remoteName: "TestData" });
+	const mockMapping = {
+		key1: "${value1}",
+		key2: "${value2}",
+	};
+	const mockData = {
+		value1: "data1",
+		value2: "data2",
+	};
 
 	beforeEach(() => {
 		fetch.mockReset();
 	});
 
 	it("should initialize successfully with valid data", () => {
-		const webhook = new Webhook(mockName, mockUrl, mockMethod);
+		const webhook = new Webhook(mockName, mockUrl, mockMethod, mockMapping);
 
 		expect(webhook).toBeInstanceOf(Webhook);
 		expect(webhook.name).toBe(mockName);
@@ -25,7 +32,7 @@ describe("Webhook", () => {
 
 	it("should default to GET method if invalid method is provided", () => {
 		const invalidMethod = "INVALID";
-		const webhook = new Webhook(mockName, mockUrl, invalidMethod);
+		const webhook = new Webhook(mockName, mockUrl, invalidMethod, mockMapping);
 
 		expect(webhook.method).toBe("GET");
 	});
@@ -36,7 +43,7 @@ describe("Webhook", () => {
 			json: async () => ({ success: true }),
 		});
 
-		const webhook = new Webhook(mockName, mockUrl, mockMethod);
+		const webhook = new Webhook(mockName, mockUrl, mockMethod, mockMapping);
 
 		await webhook.send(mockData);
 
@@ -46,16 +53,21 @@ describe("Webhook", () => {
 				Accept: "application/json",
 				"Content-Type": "application/json",
 			},
-			body: mockData,
+			body: JSON.stringify({
+				key1: "data1",
+				key2: "data2",
+			}),
 		});
 	});
 
 	it("should handle data sending failure", async () => {
 		fetch.mockResolvedValueOnce({
 			ok: false,
+			status: 500,
+			statusText: "Internal Server Error",
 		});
 
-		const webhook = new Webhook(mockName, mockUrl, mockMethod);
+		const webhook = new Webhook(mockName, mockUrl, mockMethod, mockMapping);
 
 		await expect(webhook.send(mockData)).rejects.toThrow("Failed to send data");
 
@@ -65,7 +77,27 @@ describe("Webhook", () => {
 				Accept: "application/json",
 				"Content-Type": "application/json",
 			},
-			body: mockData,
+			body: JSON.stringify({
+				key1: "data1",
+				key2: "data2",
+			}),
 		});
+	});
+
+	it("should log data instead of sending when dryRun is true", async () => {
+		const consoleLogSpy = vi.spyOn(console, "log").mockImplementation(() => {});
+
+		const webhook = new Webhook(mockName, mockUrl, mockMethod, mockMapping);
+
+		await webhook.send(mockData, true);
+
+		expect(consoleLogSpy).toHaveBeenCalledWith(
+			`[${mockName}] Would send ${JSON.stringify({
+				key1: "data1",
+				key2: "data2",
+			})}...`,
+		);
+
+		consoleLogSpy.mockRestore();
 	});
 });

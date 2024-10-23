@@ -1,4 +1,3 @@
-// src/homewizard/device.test.mjs
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { Device } from "./device.mjs";
 
@@ -14,6 +13,7 @@ describe("Device", () => {
 		api_version: "v1",
 	};
 	const mockApiResponse = {
+		updated: "2023-01-01T00:00:00.000Z",
 		data: "mockData",
 	};
 
@@ -23,6 +23,7 @@ describe("Device", () => {
 
 	it("should initialize successfully with valid data", async () => {
 		fetch.mockResolvedValueOnce({
+			ok: true,
 			json: async () => mockData,
 		});
 
@@ -41,12 +42,14 @@ describe("Device", () => {
 
 	it("should update data successfully", async () => {
 		fetch.mockResolvedValueOnce({
+			ok: true,
 			json: async () => mockData,
 		});
 
 		const device = await Device.init(mockAddress, mockOffset);
 
 		fetch.mockResolvedValueOnce({
+			ok: true,
 			json: async () => mockApiResponse,
 		});
 
@@ -58,6 +61,7 @@ describe("Device", () => {
 
 	it("should handle data update failure", async () => {
 		fetch.mockResolvedValueOnce({
+			ok: true,
 			json: async () => mockData,
 		});
 
@@ -72,6 +76,7 @@ describe("Device", () => {
 
 	it("should return correct offset", async () => {
 		fetch.mockResolvedValueOnce({
+			ok: true,
 			json: async () => mockData,
 		});
 
@@ -82,12 +87,14 @@ describe("Device", () => {
 
 	it("should return correct data", async () => {
 		fetch.mockResolvedValueOnce({
+			ok: true,
 			json: async () => mockData,
 		});
 
 		const device = await Device.init(mockAddress, mockOffset);
 
 		fetch.mockResolvedValueOnce({
+			ok: true,
 			json: async () => mockApiResponse,
 		});
 

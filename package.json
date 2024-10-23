@@ -20,6 +20,7 @@
 	},
 	"type": "module",
 	"main": "index.mjs",
+	"files": ["config/"],
 	"bin": {
 		"homewizard-webhooks ": "bin/cli.mjs"
 	},
