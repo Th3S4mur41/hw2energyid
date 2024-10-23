@@ -45,7 +45,7 @@ describe("Webhook", () => {
 
 		const webhook = new Webhook(mockName, mockUrl, mockMethod, mockMapping);
 
-		await webhook.send(mockData);
+		const result = await webhook.send(mockData);
 
 		expect(fetch).toHaveBeenCalledWith(mockUrl, {
 			method: mockMethod,
@@ -58,6 +58,7 @@ describe("Webhook", () => {
 				key2: "data2",
 			}),
 		});
+		expect(result).toEqual({ exitCode: 0, message: "Data sent successfully" });
 	});
 
 	it("should handle data sending failure", async () => {
@@ -69,7 +70,7 @@ describe("Webhook", () => {
 
 		const webhook = new Webhook(mockName, mockUrl, mockMethod, mockMapping);
 
-		await expect(webhook.send(mockData)).rejects.toThrow("Failed to send data");
+		const result = await webhook.send(mockData);
 
 		expect(fetch).toHaveBeenCalledWith(mockUrl, {
 			method: mockMethod,
@@ -82,6 +83,7 @@ describe("Webhook", () => {
 				key2: "data2",
 			}),
 		});
+		expect(result).toEqual({ exitCode: 1, message: "Failed to send data: Internal Server Error" });
 	});
 
 	it("should log data instead of sending when dryRun is true", async () => {
@@ -89,7 +91,7 @@ describe("Webhook", () => {
 
 		const webhook = new Webhook(mockName, mockUrl, mockMethod, mockMapping);
 
-		await webhook.send(mockData, true);
+		const result = await webhook.send(mockData, true);
 
 		expect(consoleLogSpy).toHaveBeenCalledWith(
 			`[${mockName}] Would send ${JSON.stringify({
@@ -97,6 +99,7 @@ describe("Webhook", () => {
 				key2: "data2",
 			})}...`,
 		);
+		expect(result).toEqual({ exitCode: 0, message: "" });
 
 		consoleLogSpy.mockRestore();
 	});

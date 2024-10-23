@@ -72,7 +72,7 @@ export class Webhook {
 
 		if (dryRun) {
 			console.log(`[${this.#name}] Would send ${JSON.stringify(jsonData)}...`);
-			return;
+			return { exitCode: 0, message: "" };
 		}
 		console.log(`[${this.#name}] Sending ${JSON.stringify(jsonData)}...`);
 
@@ -90,7 +90,9 @@ export class Webhook {
 			}
 			console.log(`[${this.#name}] Data sent successfully`);
 		} catch (error) {
-			throw new Error("Failed to send data");
+			console.error("Failed to send data");
+			return { exitCode: 1, message: error.message };
 		}
+		return { exitCode: 0, message: "Data sent successfully" };
 	};
 }
