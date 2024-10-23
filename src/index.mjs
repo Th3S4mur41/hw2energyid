@@ -6,7 +6,7 @@ import { Webhook } from "./webhooks/webhook.mjs";
 /**
  * energyid-homewizard-connector
  */
-let initialized = false;
+const initialized = false;
 let hweDevice;
 let energyid_hook = "";
 let mappings = {};
@@ -18,10 +18,21 @@ let mappings = {};
 export const init = async (hwe, energyidWebhook, offset = 0) => {
 	hweDevice = await Device.init(hwe, offset);
 	energyid_hook = energyidWebhook;
-	initialized = hweDevice instanceof Device && energyid_hook;
 
 	// import mappings.json
 	mappings = JSON.parse(fs.readFileSync("./config/mappings.json", "utf8"));
+
+	// Get initial data
+	const data = await hweDevice.update();
+	if (!data) {
+		return;
+	}
+
+	for (const key in mappings) {
+		if (data[key]) {
+			hweDevice.addHook(key, energyid_hook, "POST", mappings[key]);
+		}
+	}
 };
 
 export const sync = async (dryRun = false) => {
@@ -30,19 +41,5 @@ export const sync = async (dryRun = false) => {
 		return;
 	}
 
-	const data = await hweDevice.update();
-	if (!data) {
-		return;
-	}
-
-	for (const key in mappings) {
-		if (data[key]) {
-			const hook = new Webhook(key, energyid_hook, "POST", mappings[key]);
-
-			setTimeout(() => {
-				// Account for time discrepensies between local system and server
-				hook.send(data[key], dryRun);
-			}, 5000);
-		}
-	}
+	hweDevice.sync(dryRun);
 };

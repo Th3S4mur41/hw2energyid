@@ -17,6 +17,16 @@ describe("Device", () => {
 		data: "mockData",
 	};
 
+	const mockHook = {
+		name: "TestWebhook",
+		url: "https://example.com/webhook",
+		method: "POST",
+		mapping: {
+			key1: "${value1}",
+			key2: "${value2}",
+		},
+	};
+
 	beforeEach(() => {
 		fetch.mockReset();
 	});
@@ -101,5 +111,21 @@ describe("Device", () => {
 		await device.update();
 
 		expect(device.data).toEqual(mockApiResponse);
+	});
+
+	it("should add a hook successfully", async () => {
+		fetch.mockResolvedValueOnce({
+			ok: true,
+			json: async () => mockData,
+		});
+		const device = await Device.init(mockAddress, mockOffset);
+
+		const result = device.addHook(mockHook.name, mockHook.url, mockHook.method, mockHook.mapping);
+		expect(result).toEqual({ exitCode: 0, message: `Hook ${mockHook.name} added` });
+
+		// check if the hooks set contains the new hook
+		expect(device.hooks.size).toBe(1);
+
+		expect(device.hooks.values().next().value.name).toBe(mockHook.name);
 	});
 });

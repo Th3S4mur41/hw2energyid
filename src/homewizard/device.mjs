@@ -2,6 +2,8 @@
  * Device class
  */
 
+import { Webhook } from "../webhooks/webhook.mjs";
+
 const PROTOCOL = "http"; // Protocol used for API requests
 const PRIVATE_CONSTRUCTOR_KEY = Symbol("private"); // Symbol to enforce private constructor
 
@@ -13,6 +15,7 @@ export class Device {
 	#address = "";
 	#offset = 0;
 	#data = {};
+	#hooks = new Set();
 
 	/**
 	 * Private constructor to enforce the use of the init method
@@ -81,6 +84,14 @@ export class Device {
 	}
 
 	/**
+	 * Getter for the hooks property
+	 * @returns {Set<Webhook>} - The hooks of the device
+	 */
+	get hooks() {
+		return this.#hooks;
+	}
+
+	/**
 	 * Update the data from the HomeWizard device
 	 * @returns {Promise<Object>} - The data from the HomeWizard device
 	 */
@@ -109,6 +120,32 @@ export class Device {
 			.catch((error) => {
 				console.error(`${this.#address} cannot update data from ${this.apiUrl}`);
 			});
+	};
+
+	/**
+	 * Add a hook instance to the device
+	 * @param {string} name - Name of the hook
+	 * @param {string} url - URL of the hook
+	 * @param {string} method - HTTP method of the hook
+	 * @param {Object} mapping - Mapping object for the hook
+	 */
+	addHook = (name, url, method, mapping) => {
+		this.log(`Adding hook ${name} to ${url} ...`);
+		this.#hooks.add(new Webhook(name, url, method, mapping));
+		return { exitCode: 0, message: `Hook ${name} added` };
+	};
+
+	/**
+	 * Send data for all hooks
+	 * @param {boolean} dryRun - If true, log the data instead of sending it
+	 */
+	sync = (dryRun) => {
+		setTimeout(() => {
+			// Account for time discrepensies between local system and server
+			for (const hook of this.#hooks) {
+				hook.send(this.#data, dryRun);
+			}
+		}, 5000);
 	};
 
 	/**
