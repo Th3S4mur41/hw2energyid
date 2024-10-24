@@ -15,6 +15,7 @@ export class Device {
 	#address = "";
 	#offset = 0;
 	#data = {};
+	#updated = new Date(0);
 	#hooks = new Set();
 
 	/**
@@ -92,6 +93,14 @@ export class Device {
 	}
 
 	/**
+	 * Getter for the updated property
+	 * @returns {Date} - The last updated date of the device's data
+	 */
+	get updated() {
+		return this.#updated;
+	}
+
+	/**
 	 * Update the data from the HomeWizard device
 	 * @returns {Promise<Object>} - The data from the HomeWizard device
 	 */
@@ -114,7 +123,7 @@ export class Device {
 
 				console.log(data);
 				this.#data = data;
-
+				this.#updated = new Date();
 				return data;
 			})
 			.catch((error) => {
@@ -140,6 +149,8 @@ export class Device {
 	 * @param {boolean} dryRun - If true, log the data instead of sending it
 	 */
 	sync = (dryRun) => {
+		this.update();
+
 		setTimeout(() => {
 			// Account for time discrepensies between local system and server
 			for (const hook of this.#hooks) {

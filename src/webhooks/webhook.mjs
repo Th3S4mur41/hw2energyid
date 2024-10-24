@@ -5,10 +5,12 @@
 const METHODS = new Set(["GET", "POST", "PUT", "PATCH", "DELETE"]); // Supported HTTP methods
 
 export class Webhook {
-	#name = "";
-	#url = "";
-	#method = "";
-	#mapping = {};
+	#name;
+	#url;
+	#method;
+	#mapping;
+	#callInterval;
+	#synchronized = new Date(0);
 
 	/**
 	 * Create a new Webhook instance
@@ -16,15 +18,19 @@ export class Webhook {
 	 * @param {*} url - Set the URL of the webhook
 	 * @param {*} method - [optional] Set the method to use for the webhook (Default: GET)
 	 * @param {*} mapping - [optional] Set the mapping to adapt the data to the webhook format (Default: {})
+	 * @param {*} callInterval - [optional] Set the interval in seconds to call the webhook (Default: 60s)
 	 */
-	constructor(name, url, method = "GET", mapping = {}) {
+	constructor(name, url, method = "GET", mapping = {}, callInterval = 60) {
 		this.#name = name;
 		this.#url = url;
 		this.#method = METHODS.has(method.toUpperCase()) ? method.toUpperCase() : "GET";
 		this.#mapping = mapping;
+		this.#callInterval = callInterval;
 
 		console.log(`[${this.#name}] Webhook created`);
-		console.debug(`[${this.#name}] Webhook config: ${this.#url} - ${this.#method} - ${JSON.stringify(this.#mapping)}`);
+		console.debug(
+			`[${this.#name}] Webhook config: ${this.#url} - ${this.#method} - ${JSON.stringify(this.#mapping)} - Call Interval: ${this.#callInterval}ms`,
+		);
 	}
 
 	/**
@@ -52,6 +58,14 @@ export class Webhook {
 	}
 
 	/**
+	 * Getter for the synchronized property
+	 * @returns {Date} - The last synchronized date
+	 */
+	get synchronized() {
+		return this.#synchronized;
+	}
+
+	/**
 	 * Format the data according to the mapping
 	 * @param {Object} data - The data to be formatted
 	 * @returns {Object} - The formatted data
@@ -69,6 +83,13 @@ export class Webhook {
 	 */
 	send = async (data = "", dryRun = false) => {
 		const jsonData = this.#formatData(data);
+
+		// Check if the last send was within the last hour
+		const now = new Date();
+		if (now - this.#synchronized < this.#callInterval * 1000) {
+			console.log(`[${this.#name}] Data was sent less than ${this.#callInterval}s ago. Skipping send.`);
+			return { exitCode: 0, message: `Data was sent less than ${this.#callInterval}s ago. Skipping send.` };
+		}
 
 		if (dryRun) {
 			console.log(`[${this.#name}] Would send ${JSON.stringify(jsonData)}...`);
@@ -90,9 +111,11 @@ export class Webhook {
 			}
 			console.log(`[${this.#name}] Data sent successfully`);
 		} catch (error) {
-			console.error("Failed to send data");
+			console.error("Failed to send data", error);
 			return { exitCode: 1, message: error.message };
 		}
+
+		this.#synchronized = now;
 		return { exitCode: 0, message: "Data sent successfully" };
 	};
 }

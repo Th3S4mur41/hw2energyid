@@ -103,4 +103,44 @@ describe("Webhook", () => {
 
 		consoleLogSpy.mockRestore();
 	});
+
+	it("should not send data if called within the call interval", async () => {
+		fetch.mockResolvedValueOnce({
+			ok: true,
+			json: async () => ({ success: true }),
+		});
+		const webhook = new Webhook(mockName, mockUrl, mockMethod, mockMapping);
+
+		await webhook.send(mockData);
+
+		// Second call within the interval
+		const result = await webhook.send(mockData);
+
+		expect(result).toEqual({ exitCode: 0, message: "Data was sent less than 3600s ago. Skipping send." });
+		expect(fetch).toHaveBeenCalledTimes(1); // Ensure fetch was called only once
+	});
+
+	it("should send data if called after the call interval", async () => {
+		fetch.mockResolvedValueOnce({
+			ok: true,
+			json: async () => ({ success: true }),
+		});
+		const webhook = new Webhook(mockName, mockUrl, mockMethod, mockMapping, 1); // 1 second interval
+
+		// First call to send data
+		await webhook.send(mockData);
+
+		// Wait for the interval to pass
+		await new Promise((resolve) => setTimeout(resolve, 1100));
+
+		// Second call after the interval
+		fetch.mockResolvedValueOnce({
+			ok: true,
+			json: async () => ({ success: true }),
+		});
+		const result = await webhook.send(mockData);
+
+		expect(fetch).toHaveBeenCalledTimes(2); // Ensure fetch was called twice
+		expect(result).toEqual({ exitCode: 0, message: "Data sent successfully" });
+	});
 });

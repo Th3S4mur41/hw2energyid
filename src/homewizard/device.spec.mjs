@@ -63,9 +63,11 @@ describe("Device", () => {
 			json: async () => mockApiResponse,
 		});
 
+		const now = new Date();
 		const data = await device.update();
 
 		expect(data).toEqual(mockApiResponse);
+		expect(device.updated - now).toBeGreaterThan(0);
 		expect(device.data).toEqual(mockApiResponse);
 	});
 
