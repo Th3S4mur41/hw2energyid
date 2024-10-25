@@ -2,14 +2,14 @@
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?machine=basicLinux32gb&repo=612398925&ref=main)
 
-![Package version](https://img.shields.io/github/package-json/v/Th3S4mur41/hw2energyid)
-![GitHub last commit](https://img.shields.io/github/last-commit/Th3S4mur41/hw2energyid)
-![Release](https://github.com/Th3S4mur41/hw2energyid/actions/workflows/release.yml/badge.svg?branch=main)
-[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/Th3S4mur41/hw2energyid/badge)](https://scorecard.dev/viewer/?uri=github.com/Th3S4mur41/hw2energyid)
+![Package version](https://img.shields.io/github/package-json/v/Th3S4mur41/hw-hooks)
+![GitHub last commit](https://img.shields.io/github/last-commit/Th3S4mur41/hw-hooks)
+![Release](https://github.com/Th3S4mur41/hw-hooks/actions/workflows/release.yml/badge.svg?branch=main)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/Th3S4mur41/hw-hooks/badge)](https://scorecard.dev/viewer/?uri=github.com/Th3S4mur41/hw-hooks)
 
 ![](./docs/logo.jpg)
 
-**hw-hooks** is small tool trigger webhooks based on data gathered from [HomeWizard](https://www.homewizard.com/) devices.
+**hw-hooks** previously known as [hw2energyid](https://www.npmjs.com/package/hw2energyid) is small tool that triggers webhooks based on data gathered from [HomeWizard](https://www.homewizard.com/) devices.
 
 The app includes a bunch of preconfigured webhooks to synchonize your data with you [EnergyID](https://app.energyid.eu/) dashboard.
 Since HomeWizard devices API are only available within your local network, using an [EnergyID App](https://app.energyid.eu/integrations) to synchronize the data is not possible.  
