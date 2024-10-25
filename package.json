@@ -38,7 +38,7 @@
 		"test": "vitest run --coverage"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.9.1",
+		"@biomejs/biome": "1.9.4",
 		"@codedependant/semantic-release-docker": "^5.0.3",
 		"@commitlint/cli": "^19.0.3",
 		"@commitlint/config-conventional": "^19.0.0",
