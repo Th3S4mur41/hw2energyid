@@ -1,4 +1,4 @@
 {
-	"*.{js,cjs,mjs,ts,json}": ["biome format --write", "biome check"],
+	"*.{js,cjs,mjs,ts,json}": ["biome check --write"],
 	"*.!{js,cjs,mjs,ts,json}": ["prettier --write"]
 }
