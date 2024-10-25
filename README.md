@@ -2,10 +2,10 @@
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?machine=basicLinux32gb&repo=612398925&ref=main)
 
-![Package version](https://img.shields.io/github/package-json/v/Th3S4mur41/hw2energyid)
-![GitHub last commit](https://img.shields.io/github/last-commit/Th3S4mur41/hw2energyid)
-![Release](https://github.com/Th3S4mur41/hw2energyid/actions/workflows/release.yml/badge.svg?branch=main)
-[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/Th3S4mur41/hw2energyid/badge)](https://scorecard.dev/viewer/?uri=github.com/Th3S4mur41/hw2energyid)
+![Package version](https://img.shields.io/github/package-json/v/Th3S4mur41/hw-hooks)
+![GitHub last commit](https://img.shields.io/github/last-commit/Th3S4mur41/hw-hooks)
+![Release](https://github.com/Th3S4mur41/hw-hooks/actions/workflows/release.yml/badge.svg?branch=main)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/Th3S4mur41/hw-hooks/badge)](https://scorecard.dev/viewer/?uri=github.com/Th3S4mur41/hw-hooks)
 
 **hw2energyid** is small tool to synchronize data from [HomeWizard](https://www.homewizard.com/) devices to your [EnergyID](https://app.energyid.eu/) dashboard.
 
@@ -79,7 +79,7 @@ version: '3'
 
 services:
   hw2energyid:
-    image: ghcr.io/th3s4mur41/hw2energyid
+    image: ghcr.io/Th3S4mur41/hw-hooks
     environment:
       - energyid=<the URL of the EnergyId webhook>
       - meter=<the IP address of the  Meter device>
