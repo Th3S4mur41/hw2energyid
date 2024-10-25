@@ -1,3 +1,20 @@
+## [2.0.0-alpha.2](https://github.com/Th3S4mur41/hw-hooks/compare/v2.0.0-alpha.1...v2.0.0-alpha.2) (2024-10-25)
+
+### Features
+
+* retreive device info from api ([9ce179f](https://github.com/Th3S4mur41/hw-hooks/commit/9ce179fce25f3da6aa73e9f76b85ecda5736fc1d))
+
+### Bug Fixes
+
+* add missing cli script ([9555c12](https://github.com/Th3S4mur41/hw-hooks/commit/9555c125b38e41a8a05375a67c5a13d4cbba8af0))
+* update github refs to new repo name ([4d93b89](https://github.com/Th3S4mur41/hw-hooks/commit/4d93b8960042de533f0cf7f30518c71086956a8f))
+
+### Dependencies and Other Build Updates
+
+* **deps-dev:** uninstall @semantic-release-plus/docker ([d128997](https://github.com/Th3S4mur41/hw-hooks/commit/d12899701d4bd49500d4cda6a7f9ae2d50cf5c54))
+* update linter commands ([46ea30d](https://github.com/Th3S4mur41/hw-hooks/commit/46ea30d60f797a24d938d83a1733cd6741ea3ead))
+* update lockfile ([e21092b](https://github.com/Th3S4mur41/hw-hooks/commit/e21092b016df908227bedc69bd8c74c8dbfda08e))
+
 ## [2.0.0-alpha.1](https://github.com/Th3S4mur41/hw2energyid/compare/v1.3.18...v2.0.0-alpha.1) (2024-09-13)
 
 ### ⚠ BREAKING CHANGES

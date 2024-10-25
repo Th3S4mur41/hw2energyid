@@ -1,6 +1,6 @@
 {
 	"name": "hw-hooks",
-	"version": "2.0.0-alpha.1",
+	"version": "2.0.0-alpha.2",
 	"description": "A tool to synchronize data from HomeWizard to EnergyID",
 	"keywords": ["homewizard", "homewizard-energy", "homewizard-p1-meter", "energyid", "sync", "api", "webhook"],
 	"author": "Michaël Vanderheyden <hello@th3s4mur41.me> (https://th3s4mur41.me)",
