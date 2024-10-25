@@ -1,9 +1,10 @@
 #! /usr/bin/env node
 
-import cron from "node-cron";
+import * as fs from "node:fs";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
-import { init, sync } from "../index.mjs";
+import { execute, schedule, setDryRun } from "../index.mjs";
+import { Webhook } from "../webhooks/webhook.mjs";
 
 // TODO: check node-cron for recursive solution
 // https://www.npmjs.com/package/node-cron
@@ -51,12 +52,21 @@ if (!(argv.meter && argv.energyid)) {
 console.log(`${process.env.npm_package_name} ${process.env.npm_package_version}`);
 console.log("");
 
-await init(argv.meter, argv.energyid, argv.offset);
+setDryRun(argv.d);
+
+// import mappings.json
+const mappings = JSON.parse(fs.readFileSync("./config/mappings.json", "utf8"));
+
+const hooks = [];
+for (const key in mappings) {
+	const webhook = new Webhook(key, argv.energyid, "POST", mappings[key]);
+	hooks.push(webhook);
+}
+
 if (argv.r) {
 	console.log("Scheduling homewizard-webhooks to run every hour");
-	cron.schedule("1 * * * *", () => {
-		sync(argv.d);
-	});
+	schedule(argv.meter, hooks, argv.offset);
 } else {
-	sync(argv.d);
+	console.log(`Execute all hooks for ${argv.meter}`);
+	execute(argv.meter, hooks, argv.offset);
 }

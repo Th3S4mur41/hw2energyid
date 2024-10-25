@@ -72,6 +72,14 @@ export class Webhook {
 	 */
 	#formatData = (data) => {
 		const jsonString = JSON.stringify(this.#mapping);
+		// Check if any placholders is missing from data
+		const missingKeys = jsonString.match(/\$\{(\w+)\}/g).map((key) => key.substring(2, key.length - 1));
+		if (missingKeys.some((key) => data[key] === undefined)) {
+			console.debug(`[${this.#name}] Missing keys in data: ${missingKeys}`);
+			return undefined;
+		}
+
+		// Replace the placeholders with the data
 		const formattedData = jsonString.replace(/\$\{(\w+)\}/g, (_, key) => data[key]);
 		return JSON.parse(formattedData);
 	};
@@ -83,6 +91,12 @@ export class Webhook {
 	 */
 	send = async (data = "", dryRun = false) => {
 		const jsonData = this.#formatData(data);
+
+		// Check if jsonData is an empty object
+		if (!jsonData) {
+			console.warn(`[${this.#name}] No data matching the mapping. Skipping send.`);
+			return { exitCode: 1, message: "No data matching the mapping. Skipping send." };
+		}
 
 		// Check if the last send was within the last hour
 		const now = new Date();

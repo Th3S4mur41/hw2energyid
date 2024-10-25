@@ -1,45 +1,71 @@
-import * as fs from "node:fs";
-
+import cron from "node-cron";
 import { Device } from "./homewizard/device.mjs";
-import { Webhook } from "./webhooks/webhook.mjs";
+
+let dryRun = false;
 
 /**
- * energyid-homewizard-connector
+ * Initializes the device and adds hooks.
+ * @param {string} deviceAddress - The address of the device.
+ * @param {number} offset - The offset value for the device.
+ * @param {Array} hooks - An array of hook objects to be added to the device.
+ * @returns {Promise<Device>}
  */
-const initialized = false;
-let hweDevice;
-let energyid_hook = "";
-let mappings = {};
-
-/**
- * Public functions
- */
-
-export const init = async (hwe, energyidWebhook, offset = 0) => {
-	hweDevice = await Device.init(hwe, offset);
-	energyid_hook = energyidWebhook;
-
-	// import mappings.json
-	mappings = JSON.parse(fs.readFileSync("./config/mappings.json", "utf8"));
-
-	// Get initial data
-	const data = await hweDevice.update();
-	if (!data) {
-		return;
+const init = async (deviceAddress, offset, hooks) => {
+	const device = await Device.init(deviceAddress, offset);
+	for (const hook of hooks) {
+		device.addHook(hook);
 	}
-
-	for (const key in mappings) {
-		if (data[key]) {
-			hweDevice.addHook(key, energyid_hook, "POST", mappings[key]);
-		}
-	}
+	return device;
 };
 
-export const sync = async (dryRun = false) => {
-	if (!initialized) {
-		console.error('Configuration is missing, call "init" function first.');
-		return;
+// TODO: add a function to load device and hooks config from a file
+
+/**
+ * Gets the current dry run status.
+ * @returns {boolean} The current dry run status.
+ */
+export const getDryRun = () => dryRun;
+
+/**
+ * Sets the dry run status.
+ * @param {boolean} value - The new dry run status.
+ */
+export const setDryRun = (value) => {
+	dryRun = value;
+};
+
+/**
+ * Executes the device synchronization.
+ * @param {string} deviceAddress - The address of the device.
+ * @param {Array} hooks - An array of hook objects to be added to the device.
+ * @param {number} [offset=0] - The offset value for the device.
+ * @returns {Promise<void>}
+ */
+export const execute = async (deviceAddress, hooks, offset = 0) => {
+	console.log("execute", deviceAddress);
+	const device = await init(deviceAddress, offset, hooks);
+	device.sync(dryRun);
+};
+
+/**
+ * Schedules the device synchronization using a cron expression.
+ * @param {string} deviceAddress - The address of the device.
+ * @param {Array} hooks - An array of hook objects to be added to the device.
+ * @param {number} [offset=0] - The offset value for the device.
+ * @param {string} [cronExpression=''] - The cron expression for scheduling.
+ * @returns {Promise<void>}
+ * @throws {Error} If the cron expression is invalid.
+ */
+export const schedule = async (deviceAddress, hooks, offset = 0, cronExpression = "") => {
+	console.log("schedule", deviceAddress, cronExpression);
+	const device = await init(deviceAddress, offset, hooks);
+
+	const _cronExpression = cronExpression || "* * * * *"; // default to every minute
+	if (!cron.validate(_cronExpression)) {
+		throw new Error(`Invalid cron expression: ${_cronExpression}`);
 	}
 
-	hweDevice.sync(dryRun);
+	cron.schedule(_cronExpression, async () => {
+		device.sync(dryRun);
+	});
 };

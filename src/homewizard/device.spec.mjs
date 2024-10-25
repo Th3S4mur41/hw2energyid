@@ -1,4 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
+import { Webhook } from "../webhooks/webhook.mjs";
 import { Device } from "./device.mjs";
 
 globalThis.fetch = vi.fn();
@@ -17,15 +18,10 @@ describe("Device", () => {
 		data: "mockData",
 	};
 
-	const mockHook = {
-		name: "TestWebhook",
-		url: "https://example.com/webhook",
-		method: "POST",
-		mapping: {
-			key1: "${value1}",
-			key2: "${value2}",
-		},
-	};
+	const mockHook = new Webhook("TestWebhook", "https://example.com/webhook", "POST", {
+		key1: "${value1}",
+		key2: "${value2}",
+	});
 
 	beforeEach(() => {
 		fetch.mockReset();
@@ -122,7 +118,7 @@ describe("Device", () => {
 		});
 		const device = await Device.init(mockAddress, mockOffset);
 
-		const result = device.addHook(mockHook.name, mockHook.url, mockHook.method, mockHook.mapping);
+		const result = device.addHook(mockHook);
 		expect(result).toEqual({ exitCode: 0, message: `Hook ${mockHook.name} added` });
 
 		// check if the hooks set contains the new hook

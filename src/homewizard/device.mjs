@@ -8,25 +8,23 @@ const PROTOCOL = "http"; // Protocol used for API requests
 const PRIVATE_CONSTRUCTOR_KEY = Symbol("private"); // Symbol to enforce private constructor
 
 export class Device {
-	#name = "";
-	#serial = "";
-	#firmwareVersion = "";
-	#apiVersion = "";
-	#address = "";
-	#offset = 0;
+	#name;
+	#serial;
+	#firmwareVersion;
+	#apiVersion;
+	#address;
+	#offset;
 	#data = {};
 	#updated = new Date(0);
-	#hooks = new Set();
-
-	/**
+	#hooks = new Set(); /**
 	 * Private constructor to enforce the use of the init method
-	 * @param {*} key - Private key to enforce private constructor
-	 * @param {*} name - Name of the device
-	 * @param {*} serial - Serial number of the device
-	 * @param {*} firmwareVersion - Firmware version of the device
-	 * @param {*} apiVersion - API version of the device
-	 * @param {*} address - Address of the device
-	 * @param {*} offset - Offset value for the device
+	 * @param {string} key - Private key to enforce private constructor
+	 * @param {string} name - Name of the device
+	 * @param {string} serial - Serial number of the device
+	 * @param {string} firmwareVersion - Firmware version of the device
+	 * @param {string} apiVersion - API version of the device
+	 * @param {string} address - Address of the device
+	 * @param {number} offset - Offset value for the device
 	 */
 	constructor(key, name, serial, firmwareVersion, apiVersion, address, offset) {
 		if (key !== PRIVATE_CONSTRUCTOR_KEY) {
@@ -38,15 +36,13 @@ export class Device {
 		this.#apiVersion = apiVersion;
 		this.#address = address;
 		this.#offset = offset;
-	}
-
-	/**
+	} /**
 	 * Initialize a new Device instance
 	 * @param {string} address - Address of the device
-	 * @param {number} offset - Offset value for the device
+	 * @param {number} offset - [optional] Offset value for the device (Default: 0)
 	 * @returns {Promise<Device>} - A promise that resolves to a new Device instance
 	 */
-	static async init(address, offset) {
+	static async init(address, offset = 0) {
 		try {
 			const response = await fetch(`${PROTOCOL}://${address}/api/`);
 			if (!response.ok) {
@@ -82,6 +78,17 @@ export class Device {
 	 */
 	get offset() {
 		return this.#offset;
+	}
+
+	/**
+	 * Setter for the offset property
+	 * @param {number} newOffset - The new offset value
+	 */
+	set offset(newOffset) {
+		if (typeof newOffset !== "number") {
+			throw new TypeError("Offset must be a number");
+		}
+		this.#offset = newOffset;
 	}
 
 	/**
@@ -129,19 +136,25 @@ export class Device {
 			.catch((error) => {
 				console.error(`${this.#address} cannot update data from ${this.apiUrl}`);
 			});
-	};
-
-	/**
+	}; /**
 	 * Add a hook instance to the device
-	 * @param {string} name - Name of the hook
-	 * @param {string} url - URL of the hook
-	 * @param {string} method - HTTP method of the hook
-	 * @param {Object} mapping - Mapping object for the hook
+	 * @param {Webhook} hook
+	 * @returns
 	 */
-	addHook = (name, url, method, mapping) => {
-		this.log(`Adding hook ${name} to ${url} ...`);
-		this.#hooks.add(new Webhook(name, url, method, mapping));
-		return { exitCode: 0, message: `Hook ${name} added` };
+	addHook = (hook) => {
+		console.log(`hook: ${hook.url}`);
+
+		if (!(hook instanceof Webhook)) {
+			return { exitCode: 1, message: "Invalid hook" };
+		}
+
+		if (this.#hooks.has(hook)) {
+			return { exitCode: 2, message: "Hook already added" };
+		}
+
+		this.log(`Adding hook ${hook.name} to ${hook.url} ...`);
+		this.#hooks.add(hook);
+		return { exitCode: 0, message: `Hook ${hook.name} added` };
 	};
 
 	/**
