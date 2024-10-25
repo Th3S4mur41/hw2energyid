@@ -64,7 +64,7 @@ for (const key in mappings) {
 }
 
 if (argv.r) {
-	console.log("Scheduling homewizard-webhooks to run every hour");
+	console.log("Scheduling hw-hooks to run every hour");
 	schedule(argv.meter, hooks, argv.offset);
 } else {
 	console.log(`Execute all hooks for ${argv.meter}`);

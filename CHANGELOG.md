@@ -2,11 +2,11 @@
 
 ### ⚠ BREAKING CHANGES
 
-* npm package and docker image renamed to "homewizard-webhooks"
+* npm package and docker image renamed to "hw-hooks"
 
 ### chore
 
-* prepare renaming to homewizard-webhooks ([0e574df](https://github.com/Th3S4mur41/hw2energyid/commit/0e574df1ceb5c4911a244920da6b50de3353eb86))
+* prepare renaming to hw-hooks ([0e574df](https://github.com/Th3S4mur41/hw2energyid/commit/0e574df1ceb5c4911a244920da6b50de3353eb86))
 
 ### Dependencies and Other Build Updates
 

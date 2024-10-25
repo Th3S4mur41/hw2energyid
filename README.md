@@ -1,4 +1,4 @@
-# HomeWizard to EnergyId
+# HW Hooks
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?machine=basicLinux32gb&repo=612398925&ref=main)
 
@@ -7,10 +7,19 @@
 ![Release](https://github.com/Th3S4mur41/hw2energyid/actions/workflows/release.yml/badge.svg?branch=main)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/Th3S4mur41/hw2energyid/badge)](https://scorecard.dev/viewer/?uri=github.com/Th3S4mur41/hw2energyid)
 
-**homewizard-webhooks** is small tool to synchronize data from [HomeWizard](https://www.homewizard.com/) devices to your [EnergyID](https://app.energyid.eu/) dashboard.
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./docs/logo-dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="./docs/logo-light.png">
+    <img alt="Logo">
+  </picture>
+</p>
 
+**hw-hooks** is small tool trigger webhooks based on data gathered from [HomeWizard](https://www.homewizard.com/) devices.
+
+The app includes a bunch of preconfigured webhooks to synchonize your data with you [EnergyID](https://app.energyid.eu/) dashboard.
 Since HomeWizard devices API are only available within your local network, using an [EnergyID App](https://app.energyid.eu/integrations) to synchronize the data is not possible.  
-**homewizard-webhooks** helps bridge the gap by reading the data from your local network and sending them to EnergyId using the WebHook App
+**hw-hooks** helps bridge the gap by reading the data from your local network and sending them to EnergyId using the WebHook App
 
 ## Prerequisites
 
@@ -35,7 +44,7 @@ You can either run the tool in the console using the NPM script or use the Docke
 Open a terminal/console and run the following script:
 
 ```sh
-npx homewizard-webhooks --energyid=<url of the webhook> <options>
+npx hw-hooks --energyid=<url of the webhook> <options>
 ```
 
 ### Options
@@ -78,8 +87,8 @@ Create a docker compose file with the following content:
 version: '3'
 
 services:
-  homewizard-webhooks:
-    image: ghcr.io/th3s4mur41/homewizard-webhooks
+  hw-hooks:
+    image: ghcr.io/th3s4mur41/hw-hooks
     environment:
       - energyid=<the URL of the EnergyId webhook>
       - meter=<the IP address of the  Meter device>
@@ -100,7 +109,7 @@ services:
 ## Examples
 
 > **Note**  
-> homewizard-webhooks currently only supports synchronizing electricity and water readings
+> hw-hooks currently only supports synchronizing electricity and water readings
 
 ### P1 Meter
 
@@ -117,13 +126,13 @@ The name of the device is 'hw-p1meter-' followed by the last six charachters of 
 Now that you have all the data you need. Open a terminal/console and run the following script:
 
 ```sh
-npx homewizard-webhooks --meter=hw-p1meter-<last 6 charachter of serial> --energyid=<url of the webhook>
+npx hw-hooks --meter=hw-p1meter-<last 6 charachter of serial> --energyid=<url of the webhook>
 ```
 
 E.g.: The command with your data should look similar to this:
 
 ```sh
-npx homewizard-webhooks --meter=hw-p1meter-65d8c7 --energyid=https://hooks.energyid.eu/services/WebhookIn/46535693-fe25-48ba-96fa-ea827e987318/OS753GD97A11
+npx hw-hooks --meter=hw-p1meter-65d8c7 --energyid=https://hooks.energyid.eu/services/WebhookIn/46535693-fe25-48ba-96fa-ea827e987318/OS753GD97A11
 ```
 
 ### Water Meter
@@ -136,16 +145,16 @@ The name of the device is 'watermeter-' followed by the last six charachters of 
 Now that you have all the data you need. Open a terminal/console and run the following script:
 
 ```sh
-npx homewizard-webhooks --meter=watermeter-<last 6 charachter of serial> --energyid=<url of the webhook>
+npx hw-hooks --meter=watermeter-<last 6 charachter of serial> --energyid=<url of the webhook>
 ```
 
 E.g.: The command with your data should look similar to this:
 
 ```sh
-npx homewizard-webhooks --meter=watermeter-65d8c7 --offset=22.334 --energyid=https://hooks.energyid.eu/services/WebhookIn/46535693-fe25-48ba-96fa-ea827e987318/OS753GD97A11
+npx hw-hooks --meter=watermeter-65d8c7 --offset=22.334 --energyid=https://hooks.energyid.eu/services/WebhookIn/46535693-fe25-48ba-96fa-ea827e987318/OS753GD97A11
 ```
 
 ## Links
 
-[homewizard dicovery docs](https://homewizard-energy-api.readthedocs.io/discovery.html)  
+[homewizard dicovery docs](https://api-documentation.homewizard.com/docs/discovery)  
 [EnergyId Webhook Docs](https://api.energyid.eu/docs.html#webhook)

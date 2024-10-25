@@ -1,5 +1,5 @@
 {
-	"name": "homewizard-webhooks",
+	"name": "hw-hooks",
 	"version": "2.0.0-alpha.1",
 	"description": "A tool to synchronize data from HomeWizard to EnergyID",
 	"keywords": ["homewizard", "homewizard-energy", "homewizard-p1-meter", "energyid", "sync", "api", "webhook"],
@@ -22,14 +22,14 @@
 	"main": "index.mjs",
 	"files": ["config/"],
 	"bin": {
-		"homewizard-webhooks ": "bin/cli.mjs"
+		"hw-hooks ": "bin/cli.mjs"
 	},
 	"scripts": {
 		"clean": "npx rimraf dist bin coverage && git clean -Xf",
 		"dev": "npm run build:cli -- --watch",
 		"build": "npm run build:cli && npm run build:docker",
 		"build:cli": "node esbuild.config.mjs",
-		"build:docker": "docker build --tag homewizard-webhooks .",
+		"build:docker": "docker build --tag hw-hooks .",
 		"lint": "biome ci . && prettier --check --ignore-unknown --no-error-on-unmatched-pattern .",
 		"lint:fix": "biome check --write . && prettier --write --ignore-unknown --no-error-on-unmatched-pattern .",
 		"prepare": "husky",

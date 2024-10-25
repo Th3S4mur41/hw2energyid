@@ -16,4 +16,4 @@ ENV energyid ''
 ENV p1 ''
 ENV meter ${p1}
 
-CMD npx homewizard-webhooks --energyid=${energyid} --meter=${meter} -r
+CMD npx hw-hooks --energyid=${energyid} --meter=${meter} -r
