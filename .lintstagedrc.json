@@ -1,4 +1,3 @@
 {
-	"*.{js,cjs,mjs,ts,json}": ["biome check --write"],
-	"*.!{js,cjs,mjs,ts,json}": ["prettier --write"]
+	"*": ["prettier --write", "biome check --write"]
 }
