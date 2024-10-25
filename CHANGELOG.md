@@ -1,3 +1,15 @@
+## [1.3.19](https://github.com/Th3S4mur41/hw-hooks/compare/v1.3.18...v1.3.19) (2024-10-25)
+
+### Bug Fixes
+
+* update github refs to new repo name ([4d93b89](https://github.com/Th3S4mur41/hw-hooks/commit/4d93b8960042de533f0cf7f30518c71086956a8f))
+
+### Dependencies and Other Build Updates
+
+* **deps-dev:** uninstall @semantic-release-plus/docker ([d128997](https://github.com/Th3S4mur41/hw-hooks/commit/d12899701d4bd49500d4cda6a7f9ae2d50cf5c54))
+* generate provenance statements for npm package ([94acf8e](https://github.com/Th3S4mur41/hw-hooks/commit/94acf8e4051e9ae1f1f9b7c023aa0811f1f29de7))
+* update lockfile ([e21092b](https://github.com/Th3S4mur41/hw-hooks/commit/e21092b016df908227bedc69bd8c74c8dbfda08e))
+
 ## [1.3.18](https://github.com/Th3S4mur41/hw2energyid/compare/v1.3.17...v1.3.18) (2024-09-02)
 
 ### Bug Fixes
