@@ -7,13 +7,7 @@
 ![Release](https://github.com/Th3S4mur41/hw2energyid/actions/workflows/release.yml/badge.svg?branch=main)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/Th3S4mur41/hw2energyid/badge)](https://scorecard.dev/viewer/?uri=github.com/Th3S4mur41/hw2energyid)
 
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./docs/logo-dark.png">
-    <source media="(prefers-color-scheme: light)" srcset="./docs/logo-light.png">
-    <img alt="Logo">
-  </picture>
-</p>
+![](./docs/logo.jpg)
 
 **hw-hooks** is small tool trigger webhooks based on data gathered from [HomeWizard](https://www.homewizard.com/) devices.
 
